@@ -1,0 +1,176 @@
+
+#Elaticsearch
+GET		https://localhost:9200
+GET		https://localhost:9200/_cat
+GET		https://localhost:9200/_cluster/health
+
+## Indexing Employee dataset
+
+## Create and Manage Employee Index
+PUT		https://localhost:9200/employee				=> Create index
+GET 		https://localhost:9200/employee				=> Get index detail
+DELETE 		https://localhost:9200/employee				=> Delete index
+
+## Create and Manage Employee Documents
+POST		https://localhost:9200/employee/_doc/1			=> Index document. No error, updates document if exists with same id.
+{
+  "name":"Sachin",
+  "dept":"IT",
+  "location":"Bengaluru"
+}
+
+GET 		https://localhost:9200/employee/_doc/1			=> Get document detail
+
+DELETE		https://localhost:9200/employee/_doc/1			=> Delete document
+
+POST		https://localhost:9200/employee/_doc/1			=> Update document. Document version increments even if no changes.
+{
+  "doc": {
+    "name":"Manoj",
+    "dept":"IT",
+    "location":"Bengaluru"
+  }
+}
+
+POST		https://localhost:9200/employee/_create/2		=> Index document. Gives error if document exists with same id.
+{
+  "name":"Rahul",
+  "dept":"IT",
+  "location":"Bengaluru"
+}
+
+
+POST		https://localhost:9200/employee/_update/2		=> Update document. Does noop (no operation) if no changes.
+{
+  "doc": {
+    "name":"Sameer",
+    "dept":"IT",
+    "location":"Karachi"
+  }
+}
+
+## Create and Manage Documents with cURL (GitBash/Linux/Mac)
+
+export ELASTIC_PASSWORD=<generated_password>
+
+#Create
+curl -k -u elastic:$ELASTIC_PASSWORD -XPOST "https://localhost:9200/employee/_doc/1?pretty" -H 'Content-Type: application/json' -d '{"name": "Sachin","dept": "IT","location": "Bengaluru"}'
+
+#Fetch
+curl -k -u elastic:$ELASTIC_PASSWORD -XGET "https://localhost:9200/employee/_doc/1?pretty" 
+
+#Update
+curl -k -u elastic:$ELASTIC_PASSWORD -XPOST "https://localhost:9200/employee/_update/1?pretty" -H 'Content-Type: application/json' -d '{"doc": {"name":"Manoj","dept":"IT","location":"Bengaluru"}}'
+
+#Delete
+curl -k -u elastic:$ELASTIC_PASSWORD -XDELETE "https://localhost:9200/employee/_doc/1?pretty" 
+
+#Search
+curl -k -u elastic:$ELASTIC_PASSWORD -XGET "https://localhost:9200/employee/_search?pretty" 
+
+
+## Create and Manage Documents with cURL (Windows)
+
+set ELASTIC_PASSWORD=<generated_password>
+
+#Create
+curl -k -u elastic:%ELASTIC_PASSWORD% -XPOST "https://localhost:9200/employee/_doc/1?pretty" -H "Content-Type: application/json" -d "{\"name\": \"Sachin\", \"dept\":\"IT\", \"location\":\"Bengaluru\"}"
+
+#Fetch
+curl -k -u elastic:%ELASTIC_PASSWORD% -XGET "https://localhost:9200/employee/_doc/1?pretty" 
+
+#Update
+curl -k -u elastic:%ELASTIC_PASSWORD% -XPOST "https://localhost:9200/employee/_update/1?pretty" -H "Content-Type: application/json" -d "{\"doc\": {\"name\":\"Manoj\", \"dept\":\"IT\", \"location\":\"Bengaluru\"}}"
+
+#Delete
+curl -k -u elastic:%ELASTIC_PASSWORD%  -XDELETE "https://localhost:9200/employee/_doc/1?pretty" 
+
+#Search
+curl -k -u elastic:%ELASTIC_PASSWORD% -XGET "https://localhost:9200/employee/_search?pretty" 
+
+
+## Indexing Books dataset
+
+# Creates index and add document
+POST books/_doc
+{"name": "Snow Crash", "author": "Neal Stephenson", "release_date": "1992-06-01", "page_count": 470}
+
+# Bulk Indexing of documents
+
+POST /_bulk
+{ "index" : { "_index" : "books" } }
+{"name": "Revelation Space", "author": "Alastair Reynolds", "release_date": "2000-03-15", "page_count": 585}
+{ "index" : { "_index" : "books" } }
+{"name": "1984", "author": "George Orwell", "release_date": "1985-06-01", "page_count": 328}
+{ "index" : { "_index" : "books" } }
+{"name": "Fahrenheit 451", "author": "Ray Bradbury", "release_date": "1953-10-15", "page_count": 227}
+{ "index" : { "_index" : "books" } }
+{"name": "Brave New World", "author": "Aldous Huxley", "release_date": "1932-06-01", "page_count": 268}
+{ "index" : { "_index" : "books" } }
+{"name": "The Handmaids Tale", "author": "Margaret Atwood", "release_date": "1985-06-01", "page_count": 311}
+
+# Updates document
+POST books/_update/<documentId>
+{"name": "Snow Crash", "author": "Neal Stephenson", "release_date": "1993-06-01", "page_count": 470}
+
+# Fetch document
+GET books/_doc/<documentId>
+
+# Delete document
+DELETE books/_doc/<documentId>
+
+# Searching indexed documents
+GET books/_search
+
+GET books/_search
+{
+  "query": {
+    "match": {
+      "name": "brave"
+    }
+  }
+}
+
+## Create and Manage Documents with cURL (GitBash/Linux/Mac)
+
+export ELASTIC_PASSWORD=<generated_password>
+
+# Creates index and add document
+curl -k -u elastic:$ELASTIC_PASSWORD -XPOST "https://localhost:9200/books/_doc/1?pretty" -H 'Content-Type: application/json' -d '{"name": "Snow Crash", "author": "Neal Stephenson", "release_date": "1992-06-01", "page_count": 470}'
+
+# Bulk Indexing of documents
+curl -k -u elastic:$ELASTIC_PASSWORD -XPOST "https://localhost:9200/_bulk?pretty" -H 'Content-Type: application/json' -d'
+{ "index" : { "_index" : "books" } }
+{"name": "Revelation Space", "author": "Alastair Reynolds", "release_date": "2000-03-15", "page_count": 585}
+{ "index" : { "_index" : "books" } }
+{"name": "1984", "author": "George Orwell", "release_date": "1985-06-01", "page_count": 328}
+{ "index" : { "_index" : "books" } }
+{"name": "Fahrenheit 451", "author": "Ray Bradbury", "release_date": "1953-10-15", "page_count": 227}
+{ "index" : { "_index" : "books" } }
+{"name": "Brave New World", "author": "Aldous Huxley", "release_date": "1932-06-01", "page_count": 268}
+{ "index" : { "_index" : "books" } }
+{"name": "The Handmaids Tale", "author": "Margaret Atwood", "release_date": "1985-06-01", "page_count": 311}
+'
+
+#Fetch
+curl -k -u elastic:$ELASTIC_PASSWORD -XGET "https://localhost:9200/books/_doc/1?pretty" 
+
+#Update
+curl -k -u elastic:$ELASTIC_PASSWORD -XPOST "https://localhost:9200/books/_doc/1?pretty" -H 'Content-Type: application/json' -d '{"name": "Snow Crash", "author": "Neal Stephenson", "release_date": "1993-06-01", "page_count": 470}'
+
+#Delete
+curl -k -u elastic:$ELASTIC_PASSWORD -XDELETE "https://localhost:9200/books/_doc/1?pretty" 
+
+
+# Searching indexed documents
+curl -k -u elastic:$ELASTIC_PASSWORD -X GET "https://localhost:9200/books/_search?pretty"
+
+curl -k -u elastic:$ELASTIC_PASSWORD -X GET "https://localhost:9200/books/_search?pretty" -H 'Content-Type: application/json' -d'
+{
+  "query": {
+    "match": {
+      "name": "brave"
+    }
+  }
+}
+'
