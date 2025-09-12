@@ -1,6 +1,6 @@
 #GitBash/Linux/Mac
 
-# Navigate to mobily_elastic-stack/labs/dataset/movie-dataset
+# Navigate to mobily-elastic-stack/labs/dataset/movie-dataset
 
 #Set Password
 export ELASTIC_PASSWORD=<generated_password>
