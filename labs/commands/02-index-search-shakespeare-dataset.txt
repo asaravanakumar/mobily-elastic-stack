@@ -1,0 +1,45 @@
+#GitBash/Linux/Mac
+
+# Navigate to mobily_elastic-stack/labs/dataset/Shakespeare
+
+#Set Password
+export ELASTIC_PASSWORD=<generated_password>
+
+#Create mapping
+curl -k -u elastic:$ELASTIC_PASSWORD -H "Content-Type: application/json" -XPUT https://127.0.0.1:9200/shakespeare --data-binary @shakes-mapping.json
+
+# Index data to Elasticsearch
+curl -k -u elastic:$ELASTIC_PASSWORD -H "Content-Type: application/json" -XPUT 'https://127.0.0.1:9200/shakespeare/_bulk' --data-binary @shakespeare_9.0.json
+
+# Try searching a phrase
+
+curl -k -u elastic:$ELASTIC_PASSWORD  -H "Content-Type: application/json" -XGET 'https://127.0.0.1:9200/shakespeare/_search?pretty' -d '
+{
+"query" : {
+"match_phrase" : {
+"text_entry" : "to be or not to be"
+}
+}
+}' 
+
+#Windows
+
+# Navigate to mobily_elastic-stack/labs/dataset/Shakespeare
+
+#Set Password
+set ELASTIC_PASSWORD=<generated_password>
+
+#Create mapping
+curl -k -u elastic:%ELASTIC_PASSWORD% -H "Content-Type: application/json" -XPUT https://127.0.0.1:9200/shakespeare --data-binary @shakes-mapping.json
+
+
+#Index data to Elasticsearch
+curl -k -u elastic:%ELASTIC_PASSWORD% -H "Content-Type: application/json" -XPUT "https://127.0.0.1:9200/shakespeare/_bulk" --data-binary @shakespeare_9.0.json
+
+
+#Try searching a phrase
+
+curl -k -u elastic:%ELASTIC_PASSWORD%  -H "Content-Type: application/json" -XPOST "https://127.0.0.1:9200/shakespeare/_search?pretty" -d "{\"query\" : {\"match_phrase\" : {\"text_entry\" : \"to be or not to be\"}}}"
+
+#Delete Index
+curl -k -u elastic:%ELASTIC_PASSWORD% -XDELETE "https://127.0.0.1:9200/shakespeare"
