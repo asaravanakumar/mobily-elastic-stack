@@ -6,10 +6,15 @@
     "call_start": "2025-03-04T01:21:15Z",
     "call_end": "2025-03-04T01:33:55Z",
     "call_duration_sec": 760,
-    "call_type": "incoming",
+    "call_type": "incoming call",
     "call_status": "dropped",
     "cell_tower_id": "CT1014",
-    "call_cost": 3.11
+    "call_cost": 3.11,
+    "message": "Hello, how can I help you?",
+    "caller_location": {
+      "lat": 24.7136,
+      "lon": 46.6753
+    }
   },
   {
     "call_id": "CDR10001",

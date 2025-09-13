@@ -1,0 +1,434 @@
+{ "index": {} }
+{ "call_id": "CDR10001", "caller": "+1234567890", "callee": "+1987654321", "call_start": "2025-09-10T09:30:00Z", "call_end": "2025-09-10T09:45:00Z", "call_duration_sec": 900, "call_type": "outgoing", "call_status": "completed", "cell_tower_id": "CT1001", "call_cost": 2.75 }
+{ "index": {} }
+{ "call_id": "CDR10002", "caller": "+1234567890", "callee": "+1123456789", "call_start": "2025-09-10T10:00:00Z", "call_end": "2025-09-10T10:05:00Z", "call_duration_sec": 300, "call_type": "incoming", "call_status": "missed", "cell_tower_id": "CT1002", "call_cost": 0.00 }
+{ "index": {} }
+{ "call_id": "CDR10003", "caller": "+1098765432", "callee": "+1234567890", "call_start": "2025-09-10T11:15:00Z", "call_end": "2025-09-10T11:45:00Z", "call_duration_sec": 1800, "call_type": "outgoing", "call_status": "completed", "cell_tower_id": "CT1001", "call_cost": 5.50 }
+{ "index": {} }
+{ "call_id": "CDR10004", "caller": "+1987654321", "callee": "+1234567890", "call_start": "2025-09-11T14:30:00Z", "call_end": "2025-09-11T14:45:00Z", "call_duration_sec": 900, "call_type": "incoming", "call_status": "completed", "cell_tower_id": "CT1003", "call_cost": 2.75 }
+{ "index": {} }
+{ "call_id": "CDR10005", "caller": "+1123456789", "callee": "+1987654321", "call_start": "2025-09-11T15:00:00Z", "call_end": "2025-09-11T15:30:00Z", "call_duration_sec": 1800, "call_type": "outgoing", "call_status": "completed", "cell_tower_id": "CT1002", "call_cost": 5.50 }
+{ "index": {} }
+{ "call_id": "CDR10006", "caller": "+1234509876", "callee": "+1098765432", "call_start": "2025-09-11T16:00:00Z", "call_end": "2025-09-11T16:05:00Z", "call_duration_sec": 300, "call_type": "outgoing", "call_status": "missed", "cell_tower_id": "CT1001", "call_cost": 0.00 }
+{ "index": {} }
+{ "call_id": "CDR10007", "caller": "+1234509876", "callee": "+1098765432", "call_start": "2025-09-11T17:00:00Z", "call_end": "2025-09-11T17:20:00Z", "call_duration_sec": 1200, "call_type": "outgoing", "call_status": "completed", "cell_tower_id": "CT1003", "call_cost": 3.67 }
+{ "index": {} }
+{ "call_id": "CDR10008", "caller": "+1987654321", "callee": "+1123456789", "call_start": "2025-09-12T09:00:00Z", "call_end": "2025-09-12T09:10:00Z", "call_duration_sec": 600, "call_type": "incoming", "call_status": "completed", "cell_tower_id": "CT1002", "call_cost": 1.83 }
+{ "index": {} }
+{ "call_id": "CDR10000", "caller": "+16921200568", "callee": "+11567569532", "call_start": "2025-03-04T01:21:15Z", "call_end": "2025-03-04T01:33:55Z", "call_duration_sec": 760, "call_type": "incoming call", "call_status": "dropped", "cell_tower_id": "CT1014", "call_cost": 3.11, "notes": "Business call", "caller_location": { "lat": 24.7136, "lon": 46.6753 } }
+{ "index": {} }
+{ "call_id": "CDR10009", "caller": "+1234567891", "callee": "+1987654322", "call_start": "2025-09-12T10:00:00Z", "call_end": "2025-09-12T10:15:00Z", "call_duration_sec": 900, "call_type": "outgoing", "call_status": "completed", "cell_tower_id": "CT1004", "call_cost": 2.80, "notes": "Routine call", "caller_location": { "lat": 24.7136, "lon": 46.6753 } }
+{ "index": {} }
+{ "call_id": "CDR10010", "caller": "+1234567892", "callee": "+1987654323", "call_start": "2025-09-12T11:00:00Z", "call_end": "2025-09-12T11:05:00Z", "call_duration_sec": 300, "call_type": "incoming", "call_status": "missed", "cell_tower_id": "CT1005", "call_cost": 0.00, "notes": "Missed call", "caller_location": { "lat": 24.7743, "lon": 46.7386 } }
+{ "index": {} }
+{ "call_id": "CDR10011", "caller": "+1234567893", "callee": "+1987654324", "call_start": "2025-09-12T12:00:00Z", "call_end": "2025-09-12T12:45:00Z", "call_duration_sec": 2700, "call_type": "outgoing", "call_status": "completed", "cell_tower_id": "CT1006", "call_cost": 8.25, "notes": "Long business call", "caller_location": { "lat": 24.8000, "lon": 46.7000 } }
+{ "index": {} }
+{ "call_id": "CDR10012", "caller": "+1234567894", "callee": "+1987654325", "call_start": "2025-09-12T13:00:00Z", "call_end": "2025-09-12T13:15:00Z", "call_duration_sec": 900, "call_type": "incoming", "call_status": "completed", "cell_tower_id": "CT1007", "call_cost": 2.90, "notes": "Family call", "caller_location": { "lat": 24.7000, "lon": 46.8000 } }
+{ "index": {} }
+{ "call_id": "CDR10013", "caller": "+1234567895", "callee": "+1987654326", "call_start": "2025-09-12T14:00:00Z", "call_end": "2025-09-12T14:30:00Z", "call_duration_sec": 1800, "call_type": "outgoing", "call_status": "completed", "cell_tower_id": "CT1008", "call_cost": 5.60, "notes": "Project discussion", "caller_location": { "lat": 24.7136, "lon": 46.6753 } }
+{ "index": {} }
+{ "call_id": "CDR10014", "caller": "+1234567896", "callee": "+1987654327", "call_start": "2025-09-12T15:00:00Z", "call_end": "2025-09-12T15:05:00Z", "call_duration_sec": 300, "call_type": "outgoing", "call_status": "missed", "cell_tower_id": "CT1009", "call_cost": 0.00, "notes": "Missed call", "caller_location": { "lat": 24.7743, "lon": 46.7386 } }
+{ "index": {} }
+{ "call_id": "CDR10015", "caller": "+1234567897", "callee": "+1987654328", "call_start": "2025-09-12T16:00:00Z", "call_end": "2025-09-12T16:20:00Z", "call_duration_sec": 1200, "call_type": "outgoing", "call_status": "completed", "cell_tower_id": "CT1010", "call_cost": 3.70, "notes": "Follow-up call", "caller_location": { "lat": 24.8000, "lon": 46.7000 } }
+{ "index": {} }
+{ "call_id": "CDR10016", "caller": "+1234567898", "callee": "+1987654329", "call_start": "2025-09-12T17:00:00Z", "call_end": "2025-09-12T17:10:00Z", "call_duration_sec": 600, "call_type": "incoming", "call_status": "completed", "cell_tower_id": "CT1011", "call_cost": 1.90, "notes": "Quick update", "caller_location": { "lat": 24.7000, "lon": 46.8000 } }
+{ "index": {} }
+{ "call_id": "CDR10017", "caller": "+1234567899", "callee": "+1987654330", "call_start": "2025-09-12T18:00:00Z", "call_end": "2025-09-12T18:30:00Z", "call_duration_sec": 1800, "call_type": "outgoing", "call_status": "completed", "cell_tower_id": "CT1012", "call_cost": 5.80, "notes": "Conference call", "caller_location": { "lat": 24.7136, "lon": 46.6753 } }
+{ "index": {} }
+{ "call_id": "CDR10018", "caller": "+1234567800", "callee": "+1987654331", "call_start": "2025-09-12T19:00:00Z", "call_end": "2025-09-12T19:05:00Z", "call_duration_sec": 300, "call_type": "outgoing", "call_status": "missed", "cell_tower_id": "CT1013", "call_cost": 0.00, "notes": "Missed call", "caller_location": { "lat": 24.7743, "lon": 46.7386 } }
+{ "index": {} }
+{ "call_id": "CDR10019", "caller": "+1234567801", "callee": "+1987654332", "call_start": "2025-09-12T20:00:00Z", "call_end": "2025-09-12T20:20:00Z", "call_duration_sec": 1200, "call_type": "outgoing", "call_status": "completed", "cell_tower_id": "CT1014", "call_cost": 3.80, "notes": "Routine call", "caller_location": { "lat": 24.8000, "lon": 46.7000 } }
+{ "index": {} }
+{ "call_id": "CDR10020", "caller": "+1234567802", "callee": "+1987654333", "call_start": "2025-09-12T21:00:00Z", "call_end": "2025-09-12T21:10:00Z", "call_duration_sec": 600, "call_type": "incoming", "call_status": "completed", "cell_tower_id": "CT1015", "call_cost": 2.00, "notes": "Quick update", "caller_location": { "lat": 24.7000, "lon": 46.8000 } }
+{ "index": {} }
+{ "call_id": "CDR10021", "caller": "+1234567803", "callee": "+1987654334", "call_start": "2025-09-12T22:00:00Z", "call_end": "2025-09-12T22:30:00Z", "call_duration_sec": 1800, "call_type": "outgoing", "call_status": "completed", "cell_tower_id": "CT1016", "call_cost": 5.90, "notes": "Business call", "caller_location": { "lat": 24.7136, "lon": 46.6753 } }
+{ "index": {} }
+{ "call_id": "CDR10022", "caller": "+1234567804", "callee": "+1987654335", "call_start": "2025-09-12T23:00:00Z", "call_end": "2025-09-12T23:05:00Z", "call_duration_sec": 300, "call_type": "outgoing", "call_status": "missed", "cell_tower_id": "CT1017", "call_cost": 0.00, "notes": "Missed call", "caller_location": { "lat": 24.7743, "lon": 46.7386 } }
+{ "index": {} }
+{ "call_id": "CDR10023", "caller": "+1234567805", "callee": "+1987654336", "call_start": "2025-09-13T00:00:00Z", "call_end": "2025-09-13T00:20:00Z", "call_duration_sec": 1200, "call_type": "outgoing", "call_status": "completed", "cell_tower_id": "CT1018", "call_cost": 3.90, "notes": "Routine call", "caller_location": { "lat": 24.8000, "lon": 46.7000 } }
+{ "index": {} }
+{ "call_id": "CDR10024", "caller": "+1234567806", "callee": "+1987654337", "call_start": "2025-09-13T01:00:00Z", "call_end": "2025-09-13T01:10:00Z", "call_duration_sec": 600, "call_type": "incoming", "call_status": "completed", "cell_tower_id": "CT1019", "call_cost": 2.10, "notes": "Quick update", "caller_location": { "lat": 24.7000, "lon": 46.8000 } }
+{ "index": {} }
+{ "call_id": "CDR10025", "caller": "+1234567807", "callee": "+1987654338", "call_start": "2025-09-13T02:00:00Z", "call_end": "2025-09-13T02:30:00Z", "call_duration_sec": 1800, "call_type": "outgoing", "call_status": "completed", "cell_tower_id": "CT1020", "call_cost": 6.00, "notes": "Business call", "caller_location": { "lat": 24.7136, "lon": 46.6753 } }
+{ "index": {} }
+{ "call_id": "CDR10026", "caller": "+1234567808", "callee": "+1987654339", "call_start": "2025-09-13T03:00:00Z", "call_end": "2025-09-13T03:05:00Z", "call_duration_sec": 300, "call_type": "outgoing", "call_status": "missed", "cell_tower_id": "CT1021", "call_cost": 0.00, "notes": "Missed call", "caller_location": { "lat": 24.7743, "lon": 46.7386 } }
+{ "index": {} }
+{ "call_id": "CDR10027", "caller": "+1234567809", "callee": "+1987654340", "call_start": "2025-09-13T04:00:00Z", "call_end": "2025-09-13T04:20:00Z", "call_duration_sec": 1200, "call_type": "outgoing", "call_status": "completed", "cell_tower_id": "CT1022", "call_cost": 4.00, "notes": "Routine call", "caller_location": { "lat": 24.8000, "lon": 46.7000 } }
+{ "index": {} }
+{ "call_id": "CDR10028", "caller": "+1234567810", "callee": "+1987654341", "call_start": "2025-09-13T05:00:00Z", "call_end": "2025-09-13T05:10:00Z", "call_duration_sec": 600, "call_type": "incoming", "call_status": "completed", "cell_tower_id": "CT1023", "call_cost": 2.20, "notes": "Quick update", "caller_location": { "lat": 24.7000, "lon": 46.8000 } }
+{ "index": {} }
+{ "call_id": "CDR10031", "caller": "+1234567813", "callee": "+1987654344", "call_start": "2025-09-13T08:00:00Z", "call_end": "2025-09-13T08:20:00Z", "call_duration_sec": 1200, "call_type": "outgoing", "call_status": "completed", "cell_tower_id": "CT1026", "call_cost": 4.10, "notes": "Routine call", "caller_location": { "lat": 24.8001, "lon": 46.7001 } }
+{ "index": {} }
+{ "call_id": "CDR10032", "caller": "+1234567814", "callee": "+1987654345", "call_start": "2025-09-13T09:00:00Z", "call_end": "2025-09-13T09:10:00Z", "call_duration_sec": 600, "call_type": "incoming", "call_status": "completed", "cell_tower_id": "CT1027", "call_cost": 2.30, "notes": "Quick update", "caller_location": { "lat": 24.7001, "lon": 46.8001 } }
+{ "index": {} }
+{ "call_id": "CDR10033", "caller": "+1234567815", "callee": "+1987654346", "call_start": "2025-09-13T10:00:00Z", "call_end": "2025-09-13T10:30:00Z", "call_duration_sec": 1800, "call_type": "outgoing", "call_status": "completed", "cell_tower_id": "CT1028", "call_cost": 6.20, "notes": "Business call", "caller_location": { "lat": 24.7137, "lon": 46.6754 } }
+{ "index": {} }
+{ "call_id": "CDR10034", "caller": "+1234567816", "callee": "+1987654347", "call_start": "2025-09-13T11:00:00Z", "call_end": "2025-09-13T11:05:00Z", "call_duration_sec": 300, "call_type": "outgoing", "call_status": "missed", "cell_tower_id": "CT1029", "call_cost": 0.00, "notes": "Missed call", "caller_location": { "lat": 24.7744, "lon": 46.7387 } }
+{ "index": {} }
+{ "call_id": "CDR10035", "caller": "+1234567817", "callee": "+1987654348", "call_start": "2025-09-13T12:00:00Z", "call_end": "2025-09-13T12:45:00Z", "call_duration_sec": 2700, "call_type": "outgoing", "call_status": "completed", "cell_tower_id": "CT1030", "call_cost": 8.35, "notes": "Long business call", "caller_location": { "lat": 24.8002, "lon": 46.7002 } }
+{ "index": {} }
+{ "call_id": "CDR10036", "caller": "+1234567818", "callee": "+1987654349", "call_start": "2025-09-13T13:00:00Z", "call_end": "2025-09-13T13:15:00Z", "call_duration_sec": 900, "call_type": "incoming", "call_status": "completed", "cell_tower_id": "CT1031", "call_cost": 2.95, "notes": "Family call", "caller_location": { "lat": 24.7002, "lon": 46.8002 } }
+{ "index": {} }
+{ "call_id": "CDR10037", "caller": "+1234567819", "callee": "+1987654350", "call_start": "2025-09-13T14:00:00Z", "call_end": "2025-09-13T14:30:00Z", "call_duration_sec": 1800, "call_type": "outgoing", "call_status": "completed", "cell_tower_id": "CT1032", "call_cost": 5.70, "notes": "Project discussion", "caller_location": { "lat": 24.7138, "lon": 46.6755 } }
+{ "index": {} }
+{ "call_id": "CDR10038", "caller": "+1234567820", "callee": "+1987654351", "call_start": "2025-09-13T15:00:00Z", "call_end": "2025-09-13T15:05:00Z", "call_duration_sec": 300, "call_type": "outgoing", "call_status": "missed", "cell_tower_id": "CT1033", "call_cost": 0.00, "notes": "Missed call", "caller_location": { "lat": 24.7745, "lon": 46.7388 } }
+{ "index": {} }
+{ "call_id": "CDR10039", "caller": "+1234567821", "callee": "+1987654352", "call_start": "2025-09-13T16:00:00Z", "call_end": "2025-09-13T16:20:00Z", "call_duration_sec": 1200, "call_type": "outgoing", "call_status": "completed", "cell_tower_id": "CT1034", "call_cost": 3.80, "notes": "Follow-up call", "caller_location": { "lat": 24.8003, "lon": 46.7003 } }
+{ "index": {} }
+{ "call_id": "CDR10040", "caller": "+1234567822", "callee": "+1987654353", "call_start": "2025-09-13T17:00:00Z", "call_end": "2025-09-13T17:10:00Z", "call_duration_sec": 600, "call_type": "incoming", "call_status": "completed", "cell_tower_id": "CT1035", "call_cost": 2.00, "notes": "Quick update", "caller_location": { "lat": 24.7003, "lon": 46.8003 } }
+{ "index": {} }
+{ "call_id": "CDR10041", "caller": "+1234567823", "callee": "+1987654354", "call_start": "2025-09-13T18:00:00Z", "call_end": "2025-09-13T18:30:00Z", "call_duration_sec": 1800, "call_type": "outgoing", "call_status": "completed", "cell_tower_id": "CT1036", "call_cost": 5.90, "notes": "Conference call", "caller_location": { "lat": 24.7139, "lon": 46.6756 } }
+{ "index": {} }
+{ "call_id": "CDR10042", "caller": "+1234567824", "callee": "+1987654355", "call_start": "2025-09-13T19:00:00Z", "call_end": "2025-09-13T19:05:00Z", "call_duration_sec": 300, "call_type": "outgoing", "call_status": "missed", "cell_tower_id": "CT1037", "call_cost": 0.00, "notes": "Missed call", "caller_location": { "lat": 24.7746, "lon": 46.7389 } }
+{ "index": {} }
+{ "call_id": "CDR10043", "caller": "+1234567825", "callee": "+1987654356", "call_start": "2025-09-13T20:00:00Z", "call_end": "2025-09-13T20:20:00Z", "call_duration_sec": 1200, "call_type": "outgoing", "call_status": "completed", "cell_tower_id": "CT1038", "call_cost": 4.20, "notes": "Routine call", "caller_location": { "lat": 24.8004, "lon": 46.7004 } }
+{ "index": {} }
+{ "call_id": "CDR10044", "caller": "+1234567826", "callee": "+1987654357", "call_start": "2025-09-13T21:00:00Z", "call_end": "2025-09-13T21:10:00Z", "call_duration_sec": 600, "call_type": "incoming", "call_status": "completed", "cell_tower_id": "CT1039", "call_cost": 2.40, "notes": "Quick update", "caller_location": { "lat": 24.7004, "lon": 46.8004 } }
+{ "index": {} }
+{ "call_id": "CDR10045", "caller": "+1234567827", "callee": "+1987654358", "call_start": "2025-09-13T22:00:00Z", "call_end": "2025-09-13T22:30:00Z", "call_duration_sec": 1800, "call_type": "outgoing", "call_status": "completed", "cell_tower_id": "CT1040", "call_cost": 6.10, "notes": "Business call", "caller_location": { "lat": 24.7140, "lon": 46.6757 } }
+{ "index": {} }
+{ "call_id": "CDR10046", "caller": "+1234567828", "callee": "+1987654359", "call_start": "2025-09-13T23:00:00Z", "call_end": "2025-09-13T23:05:00Z", "call_duration_sec": 300, "call_type": "outgoing", "call_status": "missed", "cell_tower_id": "CT1041", "call_cost": 0.00, "notes": "Missed call", "caller_location": { "lat": 24.7747, "lon": 46.7390 } }
+{ "index": {} }
+{ "call_id": "CDR10047", "caller": "+1234567829", "callee": "+1987654360", "call_start": "2025-09-14T00:00:00Z", "call_end": "2025-09-14T00:20:00Z", "call_duration_sec": 1200, "call_type": "outgoing", "call_status": "completed", "cell_tower_id": "CT1042", "call_cost": 4.30, "notes": "Routine call", "caller_location": { "lat": 24.8005, "lon": 46.7005 } }
+{ "index": {} }
+{ "call_id": "CDR10048", "caller": "+1234567830", "callee": "+1987654361", "call_start": "2025-09-14T01:00:00Z", "call_end": "2025-09-14T01:10:00Z", "call_duration_sec": 600, "call_type": "incoming", "call_status": "completed", "cell_tower_id": "CT1043", "call_cost": 2.50, "notes": "Quick update", "caller_location": { "lat": 24.7005, "lon": 46.8005 } }
+{ "index": {} }
+{ "call_id": "CDR10049", "caller": "+1234567831", "callee": "+1987654362", "call_start": "2025-09-14T02:00:00Z", "call_end": "2025-09-14T02:30:00Z", "call_duration_sec": 1800, "call_type": "outgoing", "call_status": "completed", "cell_tower_id": "CT1044", "call_cost": 6.20, "notes": "Business call", "caller_location": { "lat": 24.7141, "lon": 46.6758 } }
+{ "index": {} }
+{ "call_id": "CDR10050", "caller": "+1234567832", "callee": "+1987654363", "call_start": "2025-09-14T03:00:00Z", "call_end": "2025-09-14T03:05:00Z", "call_duration_sec": 300, "call_type": "outgoing", "call_status": "missed", "cell_tower_id": "CT1045", "call_cost": 0.00, "notes": "Missed call", "caller_location": { "lat": 24.7748, "lon": 46.7391 } }
+{ "index": {} }
+{ "call_id": "CDR10051", "caller": "+1234567833", "callee": "+1987654364", "call_start": "2025-09-14T04:00:00Z", "call_end": "2025-09-14T04:20:00Z", "call_duration_sec": 1200, "call_type": "outgoing", "call_status": "completed", "cell_tower_id": "CT1046", "call_cost": 4.40, "notes": "Routine call", "caller_location": { "lat": 24.8006, "lon": 46.7006 } }
+{ "index": {} }
+{ "call_id": "CDR10052", "caller": "+1234567834", "callee": "+1987654365", "call_start": "2025-09-14T05:00:00Z", "call_end": "2025-09-14T05:10:00Z", "call_duration_sec": 600, "call_type": "incoming", "call_status": "completed", "cell_tower_id": "CT1047", "call_cost": 2.60, "notes": "Quick update", "caller_location": { "lat": 24.7006, "lon": 46.8006 } }
+{ "index": {} }
+{ "call_id": "CDR10053", "caller": "+1234567835", "callee": "+1987654366", "call_start": "2025-09-14T06:00:00Z", "call_end": "2025-09-14T06:30:00Z", "call_duration_sec": 1800, "call_type": "outgoing", "call_status": "completed", "cell_tower_id": "CT1048", "call_cost": 6.30, "notes": "Business call", "caller_location": { "lat": 24.7142, "lon": 46.6759 } }
+{ "index": {} }
+{ "call_id": "CDR10054", "caller": "+1234567836", "callee": "+1987654367", "call_start": "2025-09-14T07:00:00Z", "call_end": "2025-09-14T07:05:00Z", "call_duration_sec": 300, "call_type": "outgoing", "call_status": "missed", "cell_tower_id": "CT1049", "call_cost": 0.00, "notes": "Missed call", "caller_location": { "lat": 24.7749, "lon": 46.7392 } }
+{ "index": {} }
+{ "call_id": "CDR10055", "caller": "+1234567837", "callee": "+1987654368", "call_start": "2025-09-14T08:00:00Z", "call_end": "2025-09-14T08:20:00Z", "call_duration_sec": 1200, "call_type": "outgoing", "call_status": "completed", "cell_tower_id": "CT1050", "call_cost": 4.50, "notes": "Routine call", "caller_location": { "lat": 24.8007, "lon": 46.7007 } }
+{ "index": {} }
+{ "call_id": "CDR10056", "caller": "+1234567838", "callee": "+1987654369", "call_start": "2025-09-14T09:00:00Z", "call_end": "2025-09-14T09:10:00Z", "call_duration_sec": 600, "call_type": "incoming", "call_status": "completed", "cell_tower_id": "CT1051", "call_cost": 2.70, "notes": "Quick update", "caller_location": { "lat": 24.7007, "lon": 46.8007 } }
+{ "index": {} }
+{ "call_id": "CDR10057", "caller": "+1234567839", "callee": "+1987654370", "call_start": "2025-09-14T10:00:00Z", "call_end": "2025-09-14T10:30:00Z", "call_duration_sec": 1800, "call_type": "outgoing", "call_status": "completed", "cell_tower_id": "CT1052", "call_cost": 6.40, "notes": "Business call", "caller_location": { "lat": 24.7143, "lon": 46.6760 } }
+{ "index": {} }
+{ "call_id": "CDR10058", "caller": "+1234567840", "callee": "+1987654371", "call_start": "2025-09-14T11:00:00Z", "call_end": "2025-09-14T11:05:00Z", "call_duration_sec": 300, "call_type": "outgoing", "call_status": "missed", "cell_tower_id": "CT1053", "call_cost": 0.00, "notes": "Missed call", "caller_location": { "lat": 24.7750, "lon": 46.7393 } }
+{ "index": {} }
+{ "call_id": "CDR10059", "caller": "+1234567841", "callee": "+1987654372", "call_start": "2025-09-14T12:00:00Z", "call_end": "2025-09-14T12:45:00Z", "call_duration_sec": 2700, "call_type": "outgoing", "call_status": "completed", "cell_tower_id": "CT1054", "call_cost": 8.45, "notes": "Long business call", "caller_location": { "lat": 24.8008, "lon": 46.7008 } }
+{ "index": {} }
+{ "call_id": "CDR10060", "caller": "+1234567842", "callee": "+1987654373", "call_start": "2025-09-14T13:00:00Z", "call_end": "2025-09-14T13:15:00Z", "call_duration_sec": 900, "call_type": "incoming", "call_status": "completed", "cell_tower_id": "CT1055", "call_cost": 3.00, "notes": "Family call", "caller_location": { "lat": 24.7008, "lon": 46.8008 } }
+{ "index": {} }
+{ "call_id": "CDR10061", "caller": "+1234567843", "callee": "+1987654374", "call_start": "2025-09-14T14:00:00Z", "call_end": "2025-09-14T14:30:00Z", "call_duration_sec": 1800, "call_type": "outgoing", "call_status": "completed", "cell_tower_id": "CT1056", "call_cost": 5.80, "notes": "Project discussion", "caller_location": { "lat": 24.7144, "lon": 46.6761 } }
+{ "index": {} }
+{ "call_id": "CDR10062", "caller": "+1234567844", "callee": "+1987654375", "call_start": "2025-09-14T15:00:00Z", "call_end": "2025-09-14T15:05:00Z", "call_duration_sec": 300, "call_type": "outgoing", "call_status": "missed", "cell_tower_id": "CT1057", "call_cost": 0.00, "notes": "Missed call", "caller_location": { "lat": 24.7751, "lon": 46.7394 } }
+{ "index": {} }
+{ "call_id": "CDR10063", "caller": "+1234567845", "callee": "+1987654376", "call_start": "2025-09-14T16:00:00Z", "call_end": "2025-09-14T16:20:00Z", "call_duration_sec": 1200, "call_type": "outgoing", "call_status": "completed", "cell_tower_id": "CT1058", "call_cost": 3.90, "notes": "Follow-up call", "caller_location": { "lat": 24.8009, "lon": 46.7009 } }
+{ "index": {} }
+{ "call_id": "CDR10064", "caller": "+1234567846", "callee": "+1987654377", "call_start": "2025-09-14T17:00:00Z", "call_end": "2025-09-14T17:10:00Z", "call_duration_sec": 600, "call_type": "incoming", "call_status": "completed", "cell_tower_id": "CT1059", "call_cost": 2.10, "notes": "Quick update", "caller_location": { "lat": 24.7009, "lon": 46.8009 } }
+{ "index": {} }
+{ "call_id": "CDR10065", "caller": "+1234567847", "callee": "+1987654378", "call_start": "2025-09-14T18:00:00Z", "call_end": "2025-09-14T18:30:00Z", "call_duration_sec": 1800, "call_type": "outgoing", "call_status": "completed", "cell_tower_id": "CT1060", "call_cost": 6.50, "notes": "Conference call", "caller_location": { "lat": 24.7145, "lon": 46.6762 } }
+{ "index": {} }
+{ "call_id": "CDR10066", "caller": "+1234567848", "callee": "+1987654379", "call_start": "2025-09-14T19:00:00Z", "call_end": "2025-09-14T19:05:00Z", "call_duration_sec": 300, "call_type": "outgoing", "call_status": "missed", "cell_tower_id": "CT1061", "call_cost": 0.00, "notes": "Missed call", "caller_location": { "lat": 24.7752, "lon": 46.7395 } }
+{ "index": {} }
+{ "call_id": "CDR10067", "caller": "+1234567849", "callee": "+1987654380", "call_start": "2025-09-14T20:00:00Z", "call_end": "2025-09-14T20:20:00Z", "call_duration_sec": 1200, "call_type": "outgoing", "call_status": "completed", "cell_tower_id": "CT1062", "call_cost": 4.60, "notes": "Routine call", "caller_location": { "lat": 24.8010, "lon": 46.7010 } }
+{ "index": {} }
+{ "call_id": "CDR10068", "caller": "+1234567850", "callee": "+1987654381", "call_start": "2025-09-14T21:00:00Z", "call_end": "2025-09-14T21:10:00Z", "call_duration_sec": 600, "call_type": "incoming", "call_status": "completed", "cell_tower_id": "CT1063", "call_cost": 2.80, "notes": "Quick update", "caller_location": { "lat": 24.7010, "lon": 46.8010 } }
+{ "index": {} }
+{ "call_id": "CDR10069", "caller": "+1234567851", "callee": "+1987654382", "call_start": "2025-09-14T22:00:00Z", "call_end": "2025-09-14T22:30:00Z", "call_duration_sec": 1800, "call_type": "outgoing", "call_status": "completed", "cell_tower_id": "CT1064", "call_cost": 6.60, "notes": "Business call", "caller_location": { "lat": 24.7146, "lon": 46.6763 } }
+{ "index": {} }
+{ "call_id": "CDR10070", "caller": "+1234567852", "callee": "+1987654383", "call_start": "2025-09-14T23:00:00Z", "call_end": "2025-09-14T23:05:00Z", "call_duration_sec": 300, "call_type": "outgoing", "call_status": "missed", "cell_tower_id": "CT1065", "call_cost": 0.00, "notes": "Missed call", "caller_location": { "lat": 24.7753, "lon": 46.7396 } }
+{ "index": {} }
+{ "call_id": "CDR10071", "caller": "+1234567853", "callee": "+1987654384", "call_start": "2025-09-15T00:00:00Z", "call_end": "2025-09-15T00:20:00Z", "call_duration_sec": 1200, "call_type": "outgoing", "call_status": "completed", "cell_tower_id": "CT1066", "call_cost": 4.70, "notes": "Routine call", "caller_location": { "lat": 24.8011, "lon": 46.7011 } }
+{ "index": {} }
+{ "call_id": "CDR10072", "caller": "+1234567854", "callee": "+1987654385", "call_start": "2025-09-15T01:00:00Z", "call_end": "2025-09-15T01:10:00Z", "call_duration_sec": 600, "call_type": "incoming", "call_status": "completed", "cell_tower_id": "CT1067", "call_cost": 2.90, "notes": "Quick update", "caller_location": { "lat": 24.7011, "lon": 46.8011 } }
+{ "index": {} }
+{ "call_id": "CDR10073", "caller": "+1234567855", "callee": "+1987654386", "call_start": "2025-09-15T02:00:00Z", "call_end": "2025-09-15T02:30:00Z", "call_duration_sec": 1800, "call_type": "outgoing", "call_status": "completed", "cell_tower_id": "CT1068", "call_cost": 6.70, "notes": "Business call", "caller_location": { "lat": 24.7147, "lon": 46.6764 } }
+{ "index": {} }
+{ "call_id": "CDR10074", "caller": "+1234567856", "callee": "+1987654387", "call_start": "2025-09-15T03:00:00Z", "call_end": "2025-09-15T03:05:00Z", "call_duration_sec": 300, "call_type": "outgoing", "call_status": "missed", "cell_tower_id": "CT1069", "call_cost": 0.00, "notes": "Missed call", "caller_location": { "lat": 24.7754, "lon": 46.7397 } }
+{ "index": {} }
+{ "call_id": "CDR10075", "caller": "+1234567857", "callee": "+1987654388", "call_start": "2025-09-15T04:00:00Z", "call_end": "2025-09-15T04:20:00Z", "call_duration_sec": 1200, "call_type": "outgoing", "call_status": "completed", "cell_tower_id": "CT1070", "call_cost": 4.80, "notes": "Routine call", "caller_location": { "lat": 24.8012, "lon": 46.7012 } }
+{ "index": {} }
+{ "call_id": "CDR10076", "caller": "+1234567858", "callee": "+1987654389", "call_start": "2025-09-15T05:00:00Z", "call_end": "2025-09-15T05:10:00Z", "call_duration_sec": 600, "call_type": "incoming", "call_status": "completed", "cell_tower_id": "CT1071", "call_cost": 3.00, "notes": "Quick update", "caller_location": { "lat": 24.7012, "lon": 46.8012 } }
+{ "index": {} }
+{ "call_id": "CDR10077", "caller": "+1234567859", "callee": "+1987654390", "call_start": "2025-09-15T06:00:00Z", "call_end": "2025-09-15T06:30:00Z", "call_duration_sec": 1800, "call_type": "outgoing", "call_status": "completed", "cell_tower_id": "CT1072", "call_cost": 6.80, "notes": "Business call", "caller_location": { "lat": 24.7148, "lon": 46.6765 } }
+{ "index": {} }
+{ "call_id": "CDR10078", "caller": "+1234567860", "callee": "+1987654391", "call_start": "2025-09-15T07:00:00Z", "call_end": "2025-09-15T07:05:00Z", "call_duration_sec": 300, "call_type": "outgoing", "call_status": "missed", "cell_tower_id": "CT1073", "call_cost": 0.00, "notes": "Missed call", "caller_location": { "lat": 24.7755, "lon": 46.7398 } }
+{ "index": {} }
+{ "call_id": "CDR10079", "caller": "+1234567861", "callee": "+1987654392", "call_start": "2025-09-15T08:00:00Z", "call_end": "2025-09-15T08:20:00Z", "call_duration_sec": 1200, "call_type": "outgoing", "call_status": "completed", "cell_tower_id": "CT1074", "call_cost": 4.90, "notes": "Routine call", "caller_location": { "lat": 24.8013, "lon": 46.7013 } }
+{ "index": {} }
+{ "call_id": "CDR10080", "caller": "+1234567862", "callee": "+1987654393", "call_start": "2025-09-15T09:00:00Z", "call_end": "2025-09-15T09:10:00Z", "call_duration_sec": 600, "call_type": "incoming", "call_status": "completed", "cell_tower_id": "CT1075", "call_cost": 3.10, "notes": "Quick update", "caller_location": { "lat": 24.7013, "lon": 46.8013 } }
+{ "index": {} }
+{ "call_id": "CDR10081", "caller": "+1234567863", "callee": "+1987654394", "call_start": "2025-09-15T10:00:00Z", "call_end": "2025-09-15T10:30:00Z", "call_duration_sec": 1800, "call_type": "outgoing", "call_status": "completed", "cell_tower_id": "CT1076", "call_cost": 6.90, "notes": "Business call", "caller_location": { "lat": 24.7149, "lon": 46.6766 } }
+{ "index": {} }
+{ "call_id": "CDR10082", "caller": "+1234567864", "callee": "+1987654395", "call_start": "2025-09-15T11:00:00Z", "call_end": "2025-09-15T11:05:00Z", "call_duration_sec": 300, "call_type": "outgoing", "call_status": "missed", "cell_tower_id": "CT1077", "call_cost": 0.00, "notes": "Missed call", "caller_location": { "lat": 24.7756, "lon": 46.7399 } }
+{ "index": {} }
+{ "call_id": "CDR10083", "caller": "+1234567865", "callee": "+1987654396", "call_start": "2025-09-15T12:00:00Z", "call_end": "2025-09-15T12:45:00Z", "call_duration_sec": 2700, "call_type": "outgoing", "call_status": "completed", "cell_tower_id": "CT1078", "call_cost": 8.55, "notes": "Long business call", "caller_location": { "lat": 24.8014, "lon": 46.7014 } }
+{ "index": {} }
+{ "call_id": "CDR10084", "caller": "+1234567866", "callee": "+1987654397", "call_start": "2025-09-15T13:00:00Z", "call_end": "2025-09-15T13:15:00Z", "call_duration_sec": 900, "call_type": "incoming", "call_status": "completed", "cell_tower_id": "CT1079", "call_cost": 3.10, "notes": "Family call", "caller_location": { "lat": 24.7014, "lon": 46.8014 } }
+{ "index": {} }
+{ "call_id": "CDR10085", "caller": "+1234567867", "callee": "+1987654398", "call_start": "2025-09-15T14:00:00Z", "call_end": "2025-09-15T14:30:00Z", "call_duration_sec": 1800, "call_type": "outgoing", "call_status": "completed", "cell_tower_id": "CT1080", "call_cost": 5.90, "notes": "Project discussion", "caller_location": { "lat": 24.7150, "lon": 46.6767 } }
+{ "index": {} }
+{ "call_id": "CDR10086", "caller": "+1234567868", "callee": "+1987654399", "call_start": "2025-09-15T15:00:00Z", "call_end": "2025-09-15T15:05:00Z", "call_duration_sec": 300, "call_type": "outgoing", "call_status": "missed", "cell_tower_id": "CT1081", "call_cost": 0.00, "notes": "Missed call", "caller_location": { "lat": 24.7757, "lon": 46.7400 } }
+{ "index": {} }
+{ "call_id": "CDR10087", "caller": "+1234567869", "callee": "+1987654400", "call_start": "2025-09-15T16:00:00Z", "call_end": "2025-09-15T16:20:00Z", "call_duration_sec": 1200, "call_type": "outgoing", "call_status": "completed", "cell_tower_id": "CT1082", "call_cost": 4.00, "notes": "Follow-up call", "caller_location": { "lat": 24.8015, "lon": 46.7015 } }
+{ "index": {} }
+{ "call_id": "CDR10088", "caller": "+1234567870", "callee": "+1987654401", "call_start": "2025-09-15T17:00:00Z", "call_end": "2025-09-15T17:10:00Z", "call_duration_sec": 600, "call_type": "incoming", "call_status": "completed", "cell_tower_id": "CT1083", "call_cost": 2.20, "notes": "Quick update", "caller_location": { "lat": 24.7015, "lon": 46.8015 } }
+{ "index": {} }
+{ "call_id": "CDR10089", "caller": "+1234567871", "callee": "+1987654402", "call_start": "2025-09-15T18:00:00Z", "call_end": "2025-09-15T18:30:00Z", "call_duration_sec": 1800, "call_type": "outgoing", "call_status": "completed", "cell_tower_id": "CT1084", "call_cost": 7.00, "notes": "Conference call", "caller_location": { "lat": 24.7151, "lon": 46.6768 } }
+{ "index": {} }
+{ "call_id": "CDR10090", "caller": "+1234567872", "callee": "+1987654403", "call_start": "2025-09-15T19:00:00Z", "call_end": "2025-09-15T19:05:00Z", "call_duration_sec": 300, "call_type": "outgoing", "call_status": "missed", "cell_tower_id": "CT1085", "call_cost": 0.00, "notes": "Missed call", "caller_location": { "lat": 24.7758, "lon": 46.7401 } }
+{ "index": {} }
+{ "call_id": "CDR10091", "caller": "+1234567873", "callee": "+1987654404", "call_start": "2025-09-15T20:00:00Z", "call_end": "2025-09-15T20:20:00Z", "call_duration_sec": 1200, "call_type": "outgoing", "call_status": "completed", "cell_tower_id": "CT1086", "call_cost": 5.00, "notes": "Routine call", "caller_location": { "lat": 24.8016, "lon": 46.7016 } }
+{ "index": {} }
+{ "call_id": "CDR10092", "caller": "+1234567874", "callee": "+1987654405", "call_start": "2025-09-15T21:00:00Z", "call_end": "2025-09-15T21:10:00Z", "call_duration_sec": 600, "call_type": "incoming", "call_status": "completed", "cell_tower_id": "CT1087", "call_cost": 3.20, "notes": "Quick update", "caller_location": { "lat": 24.7016, "lon": 46.8016 } }
+{ "index": {} }
+{ "call_id": "CDR10093", "caller": "+1234567875", "callee": "+1987654406", "call_start": "2025-09-15T22:00:00Z", "call_end": "2025-09-15T22:30:00Z", "call_duration_sec": 1800, "call_type": "outgoing", "call_status": "completed", "cell_tower_id": "CT1088", "call_cost": 7.10, "notes": "Business call", "caller_location": { "lat": 24.7152, "lon": 46.6769 } }
+{ "index": {} }
+{ "call_id": "CDR10094", "caller": "+1234567876", "callee": "+1987654407", "call_start": "2025-09-15T23:00:00Z", "call_end": "2025-09-15T23:05:00Z", "call_duration_sec": 300, "call_type": "outgoing", "call_status": "missed", "cell_tower_id": "CT1089", "call_cost": 0.00, "notes": "Missed call", "caller_location": { "lat": 24.7759, "lon": 46.7402 } }
+{ "index": {} }
+{ "call_id": "CDR10095", "caller": "+1234567877", "callee": "+1987654408", "call_start": "2025-09-16T00:00:00Z", "call_end": "2025-09-16T00:20:00Z", "call_duration_sec": 1200, "call_type": "outgoing", "call_status": "completed", "cell_tower_id": "CT1090", "call_cost": 5.10, "notes": "Routine call", "caller_location": { "lat": 24.8017, "lon": 46.7017 } }
+{ "index": {} }
+{ "call_id": "CDR10096", "caller": "+1234567878", "callee": "+1987654409", "call_start": "2025-09-16T01:00:00Z", "call_end": "2025-09-16T01:10:00Z", "call_duration_sec": 600, "call_type": "incoming", "call_status": "completed", "cell_tower_id": "CT1091", "call_cost": 3.30, "notes": "Quick update", "caller_location": { "lat": 24.7017, "lon": 46.8017 } }
+{ "index": {} }
+{ "call_id": "CDR10097", "caller": "+1234567879", "callee": "+1987654410", "call_start": "2025-09-16T02:00:00Z", "call_end": "2025-09-16T02:30:00Z", "call_duration_sec": 1800, "call_type": "outgoing", "call_status": "completed", "cell_tower_id": "CT1092", "call_cost": 7.20, "notes": "Business call", "caller_location": { "lat": 24.7153, "lon": 46.6770 } }
+{ "index": {} }
+{ "call_id": "CDR10098", "caller": "+1234567880", "callee": "+1987654411", "call_start": "2025-09-16T03:00:00Z", "call_end": "2025-09-16T03:05:00Z", "call_duration_sec": 300, "call_type": "outgoing", "call_status": "missed", "cell_tower_id": "CT1093", "call_cost": 0.00, "notes": "Missed call", "caller_location": { "lat": 24.7760, "lon": 46.7403 } }
+{ "index": {} }
+{ "call_id": "CDR10099", "caller": "+1234567881", "callee": "+1987654412", "call_start": "2025-09-16T04:00:00Z", "call_end": "2025-09-16T04:20:00Z", "call_duration_sec": 1200, "call_type": "outgoing", "call_status": "completed", "cell_tower_id": "CT1094", "call_cost": 5.20, "notes": "Routine call", "caller_location": { "lat": 24.8018, "lon": 46.7018 } }
+{ "index": {} }
+{ "call_id": "CDR10100", "caller": "+1234567882", "callee": "+1987654413", "call_start": "2025-09-16T05:00:00Z", "call_end": "2025-09-16T05:10:00Z", "call_duration_sec": 600, "call_type": "incoming", "call_status": "completed", "cell_tower_id": "CT1095", "call_cost": 3.40, "notes": "Quick update", "caller_location": { "lat": 24.7018, "lon": 46.8018 } }
+{ "index": {} }
+{ "call_id": "CDR10101", "caller": "+1234567883", "callee": "+1987654414", "call_start": "2025-09-16T06:00:00Z", "call_end": "2025-09-16T06:30:00Z", "call_duration_sec": 1800, "call_type": "outgoing", "call_status": "completed", "cell_tower_id": "CT1096", "call_cost": 7.30, "notes": "Business call", "caller_location": { "lat": 24.7154, "lon": 46.6771 } }
+{ "index": {} }
+{ "call_id": "CDR10102", "caller": "+1234567884", "callee": "+1987654415", "call_start": "2025-09-16T07:00:00Z", "call_end": "2025-09-16T07:05:00Z", "call_duration_sec": 300, "call_type": "outgoing", "call_status": "missed", "cell_tower_id": "CT1097", "call_cost": 0.00, "notes": "Missed call", "caller_location": { "lat": 24.7761, "lon": 46.7404 } }
+{ "index": {} }
+{ "call_id": "CDR10103", "caller": "+1234567885", "callee": "+1987654416", "call_start": "2025-09-16T08:00:00Z", "call_end": "2025-09-16T08:20:00Z", "call_duration_sec": 1200, "call_type": "outgoing", "call_status": "completed", "cell_tower_id": "CT1098", "call_cost": 5.30, "notes": "Routine call", "caller_location": { "lat": 24.8019, "lon": 46.7019 } }
+{ "index": {} }
+{ "call_id": "CDR10104", "caller": "+1234567886", "callee": "+1987654417", "call_start": "2025-09-16T09:00:00Z", "call_end": "2025-09-16T09:10:00Z", "call_duration_sec": 600, "call_type": "incoming", "call_status": "completed", "cell_tower_id": "CT1099", "call_cost": 3.50, "notes": "Quick update", "caller_location": { "lat": 24.7019, "lon": 46.8019 } }
+{ "index": {} }
+{ "call_id": "CDR10105", "caller": "+1234567887", "callee": "+1987654418", "call_start": "2025-09-16T10:00:00Z", "call_end": "2025-09-16T10:30:00Z", "call_duration_sec": 1800, "call_type": "outgoing", "call_status": "completed", "cell_tower_id": "CT1100", "call_cost": 7.40, "notes": "Business call", "caller_location": { "lat": 24.7155, "lon": 46.6772 } }
+{ "index": {} }
+{ "call_id": "CDR10106", "caller": "+1234567888", "callee": "+1987654419", "call_start": "2025-09-16T11:00:00Z", "call_end": "2025-09-16T11:05:00Z", "call_duration_sec": 300, "call_type": "outgoing", "call_status": "missed", "cell_tower_id": "CT1101", "call_cost": 0.00, "notes": "Missed call", "caller_location": { "lat": 24.7762, "lon": 46.7405 } }
+{ "index": {} }
+{ "call_id": "CDR10107", "caller": "+1234567889", "callee": "+1987654420", "call_start": "2025-09-16T12:00:00Z", "call_end": "2025-09-16T12:45:00Z", "call_duration_sec": 2700, "call_type": "outgoing", "call_status": "completed", "cell_tower_id": "CT1102", "call_cost": 8.65, "notes": "Long business call", "caller_location": { "lat": 24.8020, "lon": 46.7020 } }
+{ "index": {} }
+{ "call_id": "CDR10108", "caller": "+1234567890", "callee": "+1987654421", "call_start": "2025-09-16T13:00:00Z", "call_end": "2025-09-16T13:15:00Z", "call_duration_sec": 900, "call_type": "incoming", "call_status": "completed", "cell_tower_id": "CT1103", "call_cost": 3.20, "notes": "Family call", "caller_location": { "lat": 24.7020, "lon": 46.8020 } }
+{ "index": {} }
+{ "call_id": "CDR10109", "caller": "+1234567891", "callee": "+1987654422", "call_start": "2025-09-16T14:00:00Z", "call_end": "2025-09-16T14:30:00Z", "call_duration_sec": 1800, "call_type": "outgoing", "call_status": "completed", "cell_tower_id": "CT1104", "call_cost": 6.00, "notes": "Project discussion", "caller_location": { "lat": 24.7156, "lon": 46.6773 } }
+{ "index": {} }
+{ "call_id": "CDR10110", "caller": "+1234567892", "callee": "+1987654423", "call_start": "2025-09-16T15:00:00Z", "call_end": "2025-09-16T15:05:00Z", "call_duration_sec": 300, "call_type": "outgoing", "call_status": "missed", "cell_tower_id": "CT1105", "call_cost": 0.00, "notes": "Missed call", "caller_location": { "lat": 24.7763, "lon": 46.7406 } }
+{ "index": {} }
+{ "call_id": "CDR10111", "caller": "+1234567893", "callee": "+1987654424", "call_start": "2025-09-16T16:00:00Z", "call_end": "2025-09-16T16:20:00Z", "call_duration_sec": 1200, "call_type": "outgoing", "call_status": "completed", "cell_tower_id": "CT1106", "call_cost": 4.10, "notes": "Follow-up call", "caller_location": { "lat": 24.8021, "lon": 46.7021 } }
+{ "index": {} }
+{ "call_id": "CDR10112", "caller": "+1234567894", "callee": "+1987654425", "call_start": "2025-09-16T17:00:00Z", "call_end": "2025-09-16T17:10:00Z", "call_duration_sec": 600, "call_type": "incoming", "call_status": "completed", "cell_tower_id": "CT1107", "call_cost": 2.30, "notes": "Quick update", "caller_location": { "lat": 24.7021, "lon": 46.8021 } }
+{ "index": {} }
+{ "call_id": "CDR10113", "caller": "+1234567895", "callee": "+1987654426", "call_start": "2025-09-16T18:00:00Z", "call_end": "2025-09-16T18:30:00Z", "call_duration_sec": 1800, "call_type": "outgoing", "call_status": "completed", "cell_tower_id": "CT1108", "call_cost": 7.50, "notes": "Conference call", "caller_location": { "lat": 24.7157, "lon": 46.6774 } }
+{ "index": {} }
+{ "call_id": "CDR10114", "caller": "+1234567896", "callee": "+1987654427", "call_start": "2025-09-16T19:00:00Z", "call_end": "2025-09-16T19:05:00Z", "call_duration_sec": 300, "call_type": "outgoing", "call_status": "missed", "cell_tower_id": "CT1109", "call_cost": 0.00, "notes": "Missed call", "caller_location": { "lat": 24.7764, "lon": 46.7407 } }
+{ "index": {} }
+{ "call_id": "CDR10115", "caller": "+1234567897", "callee": "+1987654428", "call_start": "2025-09-16T20:00:00Z", "call_end": "2025-09-16T20:20:00Z", "call_duration_sec": 1200, "call_type": "outgoing", "call_status": "completed", "cell_tower_id": "CT1110", "call_cost": 5.20, "notes": "Routine call", "caller_location": { "lat": 24.8022, "lon": 46.7022 } }
+{ "index": {} }
+{ "call_id": "CDR10116", "caller": "+1234567898", "callee": "+1987654429", "call_start": "2025-09-16T21:00:00Z", "call_end": "2025-09-16T21:10:00Z", "call_duration_sec": 600, "call_type": "incoming", "call_status": "completed", "cell_tower_id": "CT1111", "call_cost": 3.60, "notes": "Quick update", "caller_location": { "lat": 24.7022, "lon": 46.8022 } }
+{ "index": {} }
+{ "call_id": "CDR10117", "caller": "+1234567899", "callee": "+1987654430", "call_start": "2025-09-16T22:00:00Z", "call_end": "2025-09-16T22:30:00Z", "call_duration_sec": 1800, "call_type": "outgoing", "call_status": "completed", "cell_tower_id": "CT1112", "call_cost": 7.60, "notes": "Business call", "caller_location": { "lat": 24.7158, "lon": 46.6775 } }
+{ "index": {} }
+{ "call_id": "CDR10118", "caller": "+1234567800", "callee": "+1987654431", "call_start": "2025-09-16T23:00:00Z", "call_end": "2025-09-16T23:05:00Z", "call_duration_sec": 300, "call_type": "outgoing", "call_status": "missed", "cell_tower_id": "CT1113", "call_cost": 0.00, "notes": "Missed call", "caller_location": { "lat": 24.7765, "lon": 46.7408 } }
+{ "index": {} }
+{ "call_id": "CDR10119", "caller": "+1234567801", "callee": "+1987654432", "call_start": "2025-09-17T00:00:00Z", "call_end": "2025-09-17T00:20:00Z", "call_duration_sec": 1200, "call_type": "outgoing", "call_status": "completed", "cell_tower_id": "CT1114", "call_cost": 5.30, "notes": "Routine call", "caller_location": { "lat": 24.8023, "lon": 46.7023 } }
+{ "index": {} }
+{ "call_id": "CDR10120", "caller": "+1234567802", "callee": "+1987654433", "call_start": "2025-09-17T01:00:00Z", "call_end": "2025-09-17T01:10:00Z", "call_duration_sec": 600, "call_type": "incoming", "call_status": "completed", "cell_tower_id": "CT1115", "call_cost": 3.70, "notes": "Quick update", "caller_location": { "lat": 24.7023, "lon": 46.8023 } }
+{ "index": {} }
+{ "call_id": "CDR10121", "caller": "+1234567803", "callee": "+1987654434", "call_start": "2025-09-17T02:00:00Z", "call_end": "2025-09-17T02:30:00Z", "call_duration_sec": 1800, "call_type": "outgoing", "call_status": "completed", "cell_tower_id": "CT1116", "call_cost": 7.70, "notes": "Business call", "caller_location": { "lat": 24.7159, "lon": 46.6776 } }
+{ "index": {} }
+{ "call_id": "CDR10122", "caller": "+1234567804", "callee": "+1987654435", "call_start": "2025-09-17T03:00:00Z", "call_end": "2025-09-17T03:05:00Z", "call_duration_sec": 300, "call_type": "outgoing", "call_status": "missed", "cell_tower_id": "CT1117", "call_cost": 0.00, "notes": "Missed call", "caller_location": { "lat": 24.7766, "lon": 46.7409 } }
+{ "index": {} }
+{ "call_id": "CDR10123", "caller": "+1234567805", "callee": "+1987654436", "call_start": "2025-09-17T04:00:00Z", "call_end": "2025-09-17T04:20:00Z", "call_duration_sec": 1200, "call_type": "outgoing", "call_status": "completed", "cell_tower_id": "CT1118", "call_cost": 5.40, "notes": "Routine call", "caller_location": { "lat": 24.8024, "lon": 46.7024 } }
+{ "index": {} }
+{ "call_id": "CDR10124", "caller": "+1234567806", "callee": "+1987654437", "call_start": "2025-09-17T05:00:00Z", "call_end": "2025-09-17T05:10:00Z", "call_duration_sec": 600, "call_type": "incoming", "call_status": "completed", "cell_tower_id": "CT1119", "call_cost": 3.80, "notes": "Quick update", "caller_location": { "lat": 24.7024, "lon": 46.8024 } }
+{ "index": {} }
+{ "call_id": "CDR10125", "caller": "+1234567807", "callee": "+1987654438", "call_start": "2025-09-17T06:00:00Z", "call_end": "2025-09-17T06:30:00Z", "call_duration_sec": 1800, "call_type": "outgoing", "call_status": "completed", "cell_tower_id": "CT1120", "call_cost": 7.80, "notes": "Business call", "caller_location": { "lat": 24.7160, "lon": 46.6777 } }
+{ "index": {} }
+{ "call_id": "CDR10126", "caller": "+1234567808", "callee": "+1987654439", "call_start": "2025-09-17T07:00:00Z", "call_end": "2025-09-17T07:05:00Z", "call_duration_sec": 300, "call_type": "outgoing", "call_status": "missed", "cell_tower_id": "CT1121", "call_cost": 0.00, "notes": "Missed call", "caller_location": { "lat": 24.7767, "lon": 46.7410 } }
+{ "index": {} }
+{ "call_id": "CDR10127", "caller": "+1234567809", "callee": "+1987654440", "call_start": "2025-09-17T08:00:00Z", "call_end": "2025-09-17T08:20:00Z", "call_duration_sec": 1200, "call_type": "outgoing", "call_status": "completed", "cell_tower_id": "CT1122", "call_cost": 5.50, "notes": "Routine call", "caller_location": { "lat": 24.8025, "lon": 46.7025 } }
+{ "index": {} }
+{ "call_id": "CDR10128", "caller": "+1234567810", "callee": "+1987654441", "call_start": "2025-09-17T09:00:00Z", "call_end": "2025-09-17T09:10:00Z", "call_duration_sec": 600, "call_type": "incoming", "call_status": "completed", "cell_tower_id": "CT1123", "call_cost": 3.90, "notes": "Quick update", "caller_location": { "lat": 24.7025, "lon": 46.8025 } }
+{ "index": {} }
+{ "call_id": "CDR10129", "caller": "+1234567811", "callee": "+1987654442", "call_start": "2025-09-17T10:00:00Z", "call_end": "2025-09-17T10:30:00Z", "call_duration_sec": 1800, "call_type": "outgoing", "call_status": "completed", "cell_tower_id": "CT1124", "call_cost": 7.90, "notes": "Business call", "caller_location": { "lat": 24.7161, "lon": 46.6778 } }
+{ "index": {} }
+{ "call_id": "CDR10130", "caller": "+1234567812", "callee": "+1987654443", "call_start": "2025-09-17T11:00:00Z", "call_end": "2025-09-17T11:05:00Z", "call_duration_sec": 300, "call_type": "outgoing", "call_status": "missed", "cell_tower_id": "CT1125", "call_cost": 0.00, "notes": "Missed call", "caller_location": { "lat": 24.7768, "lon": 46.7411 } }
+{ "index": {} }
+{ "call_id": "CDR10131", "caller": "+1234567813", "callee": "+1987654444", "call_start": "2025-09-17T12:00:00Z", "call_end": "2025-09-17T12:20:00Z", "call_duration_sec": 1200, "call_type": "outgoing", "call_status": "completed", "cell_tower_id": "CT1126", "call_cost": 5.60, "notes": "Routine call", "caller_location": { "lat": 24.8026, "lon": 46.7026 } }
+{ "index": {} }
+{ "call_id": "CDR10132", "caller": "+1234567814", "callee": "+1987654445", "call_start": "2025-09-17T13:00:00Z", "call_end": "2025-09-17T13:10:00Z", "call_duration_sec": 600, "call_type": "incoming", "call_status": "completed", "cell_tower_id": "CT1127", "call_cost": 4.00, "notes": "Quick update", "caller_location": { "lat": 24.7026, "lon": 46.8026 } }
+{ "index": {} }
+{ "call_id": "CDR10133", "caller": "+1234567815", "callee": "+1987654446", "call_start": "2025-09-17T14:00:00Z", "call_end": "2025-09-17T14:30:00Z", "call_duration_sec": 1800, "call_type": "outgoing", "call_status": "completed", "cell_tower_id": "CT1128", "call_cost": 8.00, "notes": "Business call", "caller_location": { "lat": 24.7162, "lon": 46.6779 } }
+{ "index": {} }
+{ "call_id": "CDR10134", "caller": "+1234567816", "callee": "+1987654447", "call_start": "2025-09-17T15:00:00Z", "call_end": "2025-09-17T15:05:00Z", "call_duration_sec": 300, "call_type": "outgoing", "call_status": "missed", "cell_tower_id": "CT1129", "call_cost": 0.00, "notes": "Missed call", "caller_location": { "lat": 24.7769, "lon": 46.7412 } }
+{ "index": {} }
+{ "call_id": "CDR10135", "caller": "+1234567817", "callee": "+1987654448", "call_start": "2025-09-17T16:00:00Z", "call_end": "2025-09-17T16:20:00Z", "call_duration_sec": 1200, "call_type": "outgoing", "call_status": "completed", "cell_tower_id": "CT1130", "call_cost": 5.70, "notes": "Routine call", "caller_location": { "lat": 24.8027, "lon": 46.7027 } }
+{ "index": {} }
+{ "call_id": "CDR10136", "caller": "+1234567818", "callee": "+1987654449", "call_start": "2025-09-17T17:00:00Z", "call_end": "2025-09-17T17:10:00Z", "call_duration_sec": 600, "call_type": "incoming", "call_status": "completed", "cell_tower_id": "CT1131", "call_cost": 4.10, "notes": "Quick update", "caller_location": { "lat": 24.7027, "lon": 46.8027 } }
+{ "index": {} }
+{ "call_id": "CDR10137", "caller": "+1234567819", "callee": "+1987654450", "call_start": "2025-09-17T18:00:00Z", "call_end": "2025-09-17T18:30:00Z", "call_duration_sec": 1800, "call_type": "outgoing", "call_status": "completed", "cell_tower_id": "CT1132", "call_cost": 8.10, "notes": "Business call", "caller_location": { "lat": 24.7163, "lon": 46.6780 } }
+{ "index": {} }
+{ "call_id": "CDR10138", "caller": "+1234567820", "callee": "+1987654451", "call_start": "2025-09-17T19:00:00Z", "call_end": "2025-09-17T19:05:00Z", "call_duration_sec": 300, "call_type": "outgoing", "call_status": "missed", "cell_tower_id": "CT1133", "call_cost": 0.00, "notes": "Missed call", "caller_location": { "lat": 24.7770, "lon": 46.7413 } }
+{ "index": {} }
+{ "call_id": "CDR10139", "caller": "+1234567821", "callee": "+1987654452", "call_start": "2025-09-17T20:00:00Z", "call_end": "2025-09-17T20:20:00Z", "call_duration_sec": 1200, "call_type": "outgoing", "call_status": "completed", "cell_tower_id": "CT1134", "call_cost": 5.80, "notes": "Routine call", "caller_location": { "lat": 24.8028, "lon": 46.7028 } }
+{ "index": {} }
+{ "call_id": "CDR10140", "caller": "+1234567822", "callee": "+1987654453", "call_start": "2025-09-17T21:00:00Z", "call_end": "2025-09-17T21:10:00Z", "call_duration_sec": 600, "call_type": "incoming", "call_status": "completed", "cell_tower_id": "CT1135", "call_cost": 4.20, "notes": "Quick update", "caller_location": { "lat": 24.7028, "lon": 46.8028 } }
+{ "index": {} }
+{ "call_id": "CDR10141", "caller": "+1234567823", "callee": "+1987654454", "call_start": "2025-09-17T22:00:00Z", "call_end": "2025-09-17T22:30:00Z", "call_duration_sec": 1800, "call_type": "outgoing", "call_status": "completed", "cell_tower_id": "CT1136", "call_cost": 8.20, "notes": "Business call", "caller_location": { "lat": 24.7164, "lon": 46.6781 } }
+{ "index": {} }
+{ "call_id": "CDR10142", "caller": "+1234567824", "callee": "+1987654455", "call_start": "2025-09-17T23:00:00Z", "call_end": "2025-09-17T23:05:00Z", "call_duration_sec": 300, "call_type": "outgoing", "call_status": "missed", "cell_tower_id": "CT1137", "call_cost": 0.00, "notes": "Missed call", "caller_location": { "lat": 24.7771, "lon": 46.7414 } }
+{ "index": {} }
+{ "call_id": "CDR10143", "caller": "+1234567825", "callee": "+1987654456", "call_start": "2025-09-18T00:00:00Z", "call_end": "2025-09-18T00:20:00Z", "call_duration_sec": 1200, "call_type": "outgoing", "call_status": "completed", "cell_tower_id": "CT1138", "call_cost": 5.90, "notes": "Routine call", "caller_location": { "lat": 24.8029, "lon": 46.7029 } }
+{ "index": {} }
+{ "call_id": "CDR10144", "caller": "+1234567826", "callee": "+1987654457", "call_start": "2025-09-18T01:00:00Z", "call_end": "2025-09-18T01:10:00Z", "call_duration_sec": 600, "call_type": "incoming", "call_status": "completed", "cell_tower_id": "CT1139", "call_cost": 4.30, "notes": "Quick update", "caller_location": { "lat": 24.7029, "lon": 46.8029 } }
+{ "index": {} }
+{ "call_id": "CDR10145", "caller": "+1234567827", "callee": "+1987654458", "call_start": "2025-09-18T02:00:00Z", "call_end": "2025-09-18T02:30:00Z", "call_duration_sec": 1800, "call_type": "outgoing", "call_status": "completed", "cell_tower_id": "CT1140", "call_cost": 8.30, "notes": "Business call", "caller_location": { "lat": 24.7165, "lon": 46.6782 } }
+{ "index": {} }
+{ "call_id": "CDR10146", "caller": "+1234567828", "callee": "+1987654459", "call_start": "2025-09-18T03:00:00Z", "call_end": "2025-09-18T03:05:00Z", "call_duration_sec": 300, "call_type": "outgoing", "call_status": "missed", "cell_tower_id": "CT1141", "call_cost": 0.00, "notes": "Missed call", "caller_location": { "lat": 24.7772, "lon": 46.7415 } }
+{ "index": {} }
+{ "call_id": "CDR10147", "caller": "+1234567829", "callee": "+1987654460", "call_start": "2025-09-18T04:00:00Z", "call_end": "2025-09-18T04:20:00Z", "call_duration_sec": 1200, "call_type": "outgoing", "call_status": "completed", "cell_tower_id": "CT1142", "call_cost": 6.00, "notes": "Routine call", "caller_location": { "lat": 24.8030, "lon": 46.7030 } }
+{ "index": {} }
+{ "call_id": "CDR10148", "caller": "+1234567830", "callee": "+1987654461", "call_start": "2025-09-18T05:00:00Z", "call_end": "2025-09-18T05:10:00Z", "call_duration_sec": 600, "call_type": "incoming", "call_status": "completed", "cell_tower_id": "CT1143", "call_cost": 4.40, "notes": "Quick update", "caller_location": { "lat": 24.7030, "lon": 46.8030 } }
+{ "index": {} }
+{ "call_id": "CDR10149", "caller": "+1234567831", "callee": "+1987654462", "call_start": "2025-09-18T06:00:00Z", "call_end": "2025-09-18T06:30:00Z", "call_duration_sec": 1800, "call_type": "outgoing", "call_status": "completed", "cell_tower_id": "CT1144", "call_cost": 8.40, "notes": "Business call", "caller_location": { "lat": 24.7166, "lon": 46.6783 } }
+{ "index": {} }
+{ "call_id": "CDR10150", "caller": "+1234567832", "callee": "+1987654463", "call_start": "2025-09-18T07:00:00Z", "call_end": "2025-09-18T07:05:00Z", "call_duration_sec": 300, "call_type": "outgoing", "call_status": "missed", "cell_tower_id": "CT1145", "call_cost": 0.00, "notes": "Missed call", "caller_location": { "lat": 24.7773, "lon": 46.7416 } }
+{ "index": {} }
+{ "call_id": "CDR10151", "caller": "+1234567833", "callee": "+1987654464", "call_start": "2025-09-18T08:00:00Z", "call_end": "2025-09-18T08:20:00Z", "call_duration_sec": 1200, "call_type": "outgoing", "call_status": "completed", "cell_tower_id": "CT1146", "call_cost": 6.10, "notes": "Routine call", "caller_location": { "lat": 24.8031, "lon": 46.7031 } }
+{ "index": {} }
+{ "call_id": "CDR10152", "caller": "+1234567834", "callee": "+1987654465", "call_start": "2025-09-18T09:00:00Z", "call_end": "2025-09-18T09:10:00Z", "call_duration_sec": 600, "call_type": "incoming", "call_status": "completed", "cell_tower_id": "CT1147", "call_cost": 4.50, "notes": "Quick update", "caller_location": { "lat": 24.7031, "lon": 46.8031 } }
+{ "index": {} }
+{ "call_id": "CDR10153", "caller": "+1234567835", "callee": "+1987654466", "call_start": "2025-09-18T10:00:00Z", "call_end": "2025-09-18T10:30:00Z", "call_duration_sec": 1800, "call_type": "outgoing", "call_status": "completed", "cell_tower_id": "CT1148", "call_cost": 8.50, "notes": "Business call", "caller_location": { "lat": 24.7167, "lon": 46.6784 } }
+{ "index": {} }
+{ "call_id": "CDR10154", "caller": "+1234567836", "callee": "+1987654467", "call_start": "2025-09-18T11:00:00Z", "call_end": "2025-09-18T11:05:00Z", "call_duration_sec": 300, "call_type": "outgoing", "call_status": "missed", "cell_tower_id": "CT1149", "call_cost": 0.00, "notes": "Missed call", "caller_location": { "lat": 24.7774, "lon": 46.7417 } }
+{ "index": {} }
+{ "call_id": "CDR10155", "caller": "+1234567837", "callee": "+1987654468", "call_start": "2025-09-18T12:00:00Z", "call_end": "2025-09-18T12:20:00Z", "call_duration_sec": 1200, "call_type": "outgoing", "call_status": "completed", "cell_tower_id": "CT1150", "call_cost": 6.20, "notes": "Routine call", "caller_location": { "lat": 24.8032, "lon": 46.7032 } }
+{ "index": {} }
+{ "call_id": "CDR10156", "caller": "+1234567838", "callee": "+1987654469", "call_start": "2025-09-18T13:00:00Z", "call_end": "2025-09-18T13:10:00Z", "call_duration_sec": 600, "call_type": "incoming", "call_status": "completed", "cell_tower_id": "CT1151", "call_cost": 4.60, "notes": "Quick update", "caller_location": { "lat": 24.7032, "lon": 46.8032 } }
+{ "index": {} }
+{ "call_id": "CDR10157", "caller": "+1234567839", "callee": "+1987654470", "call_start": "2025-09-18T14:00:00Z", "call_end": "2025-09-18T14:30:00Z", "call_duration_sec": 1800, "call_type": "outgoing", "call_status": "completed", "cell_tower_id": "CT1152", "call_cost": 8.60, "notes": "Business call", "caller_location": { "lat": 24.7168, "lon": 46.6785 } }
+{ "index": {} }
+{ "call_id": "CDR10158", "caller": "+1234567840", "callee": "+1987654471", "call_start": "2025-09-18T15:00:00Z", "call_end": "2025-09-18T15:05:00Z", "call_duration_sec": 300, "call_type": "outgoing", "call_status": "missed", "cell_tower_id": "CT1153", "call_cost": 0.00, "notes": "Missed call", "caller_location": { "lat": 24.7775, "lon": 46.7418 } }
+{ "index": {} }
+{ "call_id": "CDR10159", "caller": "+1234567841", "callee": "+1987654472", "call_start": "2025-09-18T16:00:00Z", "call_end": "2025-09-18T16:20:00Z", "call_duration_sec": 1200, "call_type": "outgoing", "call_status": "completed", "cell_tower_id": "CT1154", "call_cost": 6.30, "notes": "Routine call", "caller_location": { "lat": 24.8033, "lon": 46.7033 } }
+{ "index": {} }
+{ "call_id": "CDR10160", "caller": "+1234567842", "callee": "+1987654473", "call_start": "2025-09-18T17:00:00Z", "call_end": "2025-09-18T17:10:00Z", "call_duration_sec": 600, "call_type": "incoming", "call_status": "completed", "cell_tower_id": "CT1155", "call_cost": 4.70, "notes": "Quick update", "caller_location": { "lat": 24.7033, "lon": 46.8033 } }
+{ "index": {} }
+{ "call_id": "CDR10161", "caller": "+1234567843", "callee": "+1987654474", "call_start": "2025-09-18T18:00:00Z", "call_end": "2025-09-18T18:30:00Z", "call_duration_sec": 1800, "call_type": "outgoing", "call_status": "completed", "cell_tower_id": "CT1156", "call_cost": 8.70, "notes": "Business call", "caller_location": { "lat": 24.7169, "lon": 46.6786 } }
+{ "index": {} }
+{ "call_id": "CDR10162", "caller": "+1234567844", "callee": "+1987654475", "call_start": "2025-09-18T19:00:00Z", "call_end": "2025-09-18T19:05:00Z", "call_duration_sec": 300, "call_type": "outgoing", "call_status": "missed", "cell_tower_id": "CT1157", "call_cost": 0.00, "notes": "Missed call", "caller_location": { "lat": 24.7776, "lon": 46.7419 } }
+{ "index": {} }
+{ "call_id": "CDR10163", "caller": "+1234567845", "callee": "+1987654476", "call_start": "2025-09-18T20:00:00Z", "call_end": "2025-09-18T20:20:00Z", "call_duration_sec": 1200, "call_type": "outgoing", "call_status": "completed", "cell_tower_id": "CT1158", "call_cost": 6.40, "notes": "Routine call", "caller_location": { "lat": 24.8034, "lon": 46.7034 } }
+{ "index": {} }
+{ "call_id": "CDR10164", "caller": "+1234567846", "callee": "+1987654477", "call_start": "2025-09-18T21:00:00Z", "call_end": "2025-09-18T21:10:00Z", "call_duration_sec": 600, "call_type": "incoming", "call_status": "completed", "cell_tower_id": "CT1159", "call_cost": 4.80, "notes": "Quick update", "caller_location": { "lat": 24.7034, "lon": 46.8034 } }
+{ "index": {} }
+{ "call_id": "CDR10165", "caller": "+1234567847", "callee": "+1987654478", "call_start": "2025-09-18T22:00:00Z", "call_end": "2025-09-18T22:30:00Z", "call_duration_sec": 1800, "call_type": "outgoing", "call_status": "completed", "cell_tower_id": "CT1160", "call_cost": 8.80, "notes": "Business call", "caller_location": { "lat": 24.7170, "lon": 46.6787 } }
+{ "index": {} }
+{ "call_id": "CDR10166", "caller": "+1234567848", "callee": "+1987654479", "call_start": "2025-09-18T23:00:00Z", "call_end": "2025-09-18T23:05:00Z", "call_duration_sec": 300, "call_type": "outgoing", "call_status": "missed", "cell_tower_id": "CT1161", "call_cost": 0.00, "notes": "Missed call", "caller_location": { "lat": 24.7777, "lon": 46.7420 } }
+{ "index": {} }
+{ "call_id": "CDR10167", "caller": "+1234567849", "callee": "+1987654480", "call_start": "2025-09-19T00:00:00Z", "call_end": "2025-09-19T00:20:00Z", "call_duration_sec": 1200, "call_type": "outgoing", "call_status": "completed", "cell_tower_id": "CT1162", "call_cost": 6.50, "notes": "Routine call", "caller_location": { "lat": 24.8035, "lon": 46.7035 } }
+{ "index": {} }
+{ "call_id": "CDR10168", "caller": "+1234567850", "callee": "+1987654481", "call_start": "2025-09-19T01:00:00Z", "call_end": "2025-09-19T01:10:00Z", "call_duration_sec": 600, "call_type": "incoming", "call_status": "completed", "cell_tower_id": "CT1163", "call_cost": 4.90, "notes": "Quick update", "caller_location": { "lat": 24.7035, "lon": 46.8035 } }
+{ "index": {} }
+{ "call_id": "CDR10169", "caller": "+1234567851", "callee": "+1987654482", "call_start": "2025-09-19T02:00:00Z", "call_end": "2025-09-19T02:30:00Z", "call_duration_sec": 1800, "call_type": "outgoing", "call_status": "completed", "cell_tower_id": "CT1164", "call_cost": 8.90, "notes": "Business call", "caller_location": { "lat": 24.7171, "lon": 46.6788 } }
+{ "index": {} }
+{ "call_id": "CDR10170", "caller": "+1234567852", "callee": "+1987654483", "call_start": "2025-09-19T03:00:00Z", "call_end": "2025-09-19T03:05:00Z", "call_duration_sec": 300, "call_type": "outgoing", "call_status": "missed", "cell_tower_id": "CT1165", "call_cost": 0.00, "notes": "Missed call", "caller_location": { "lat": 24.7778, "lon": 46.7421 } }
+{ "index": {} }
+{ "call_id": "CDR10171", "caller": "+1234567853", "callee": "+1987654484", "call_start": "2025-09-19T04:00:00Z", "call_end": "2025-09-19T04:20:00Z", "call_duration_sec": 1200, "call_type": "outgoing", "call_status": "completed", "cell_tower_id": "CT1166", "call_cost": 6.60, "notes": "Routine call", "caller_location": { "lat": 24.8036, "lon": 46.7036 } }
+{ "index": {} }
+{ "call_id": "CDR10172", "caller": "+1234567854", "callee": "+1987654485", "call_start": "2025-09-19T05:00:00Z", "call_end": "2025-09-19T05:10:00Z", "call_duration_sec": 600, "call_type": "incoming", "call_status": "completed", "cell_tower_id": "CT1167", "call_cost": 5.00, "notes": "Quick update", "caller_location": { "lat": 24.7036, "lon": 46.8036 } }
+{ "index": {} }
+{ "call_id": "CDR10173", "caller": "+1234567855", "callee": "+1987654486", "call_start": "2025-09-19T06:00:00Z", "call_end": "2025-09-19T06:30:00Z", "call_duration_sec": 1800, "call_type": "outgoing", "call_status": "completed", "cell_tower_id": "CT1168", "call_cost": 9.00, "notes": "Business call", "caller_location": { "lat": 24.7172, "lon": 46.6789 } }
+{ "index": {} }
+{ "call_id": "CDR10174", "caller": "+1234567856", "callee": "+1987654487", "call_start": "2025-09-19T07:00:00Z", "call_end": "2025-09-19T07:05:00Z", "call_duration_sec": 300, "call_type": "outgoing", "call_status": "missed", "cell_tower_id": "CT1169", "call_cost": 0.00, "notes": "Missed call", "caller_location": { "lat": 24.7779, "lon": 46.7422 } }
+{ "index": {} }
+{ "call_id": "CDR10175", "caller": "+1234567857", "callee": "+1987654488", "call_start": "2025-09-19T08:00:00Z", "call_end": "2025-09-19T08:20:00Z", "call_duration_sec": 1200, "call_type": "outgoing", "call_status": "completed", "cell_tower_id": "CT1170", "call_cost": 6.70, "notes": "Routine call", "caller_location": { "lat": 24.8037, "lon": 46.7037 } }
+{ "index": {} }
+{ "call_id": "CDR10176", "caller": "+1234567858", "callee": "+1987654489", "call_start": "2025-09-19T09:00:00Z", "call_end": "2025-09-19T09:10:00Z", "call_duration_sec": 600, "call_type": "incoming", "call_status": "completed", "cell_tower_id": "CT1171", "call_cost": 5.10, "notes": "Quick update", "caller_location": { "lat": 24.7037, "lon": 46.8037 } }
+{ "index": {} }
+{ "call_id": "CDR10177", "caller": "+1234567859", "callee": "+1987654490", "call_start": "2025-09-19T10:00:00Z", "call_end": "2025-09-19T10:30:00Z", "call_duration_sec": 1800, "call_type": "outgoing", "call_status": "completed", "cell_tower_id": "CT1172", "call_cost": 9.10, "notes": "Business call", "caller_location": { "lat": 24.7173, "lon": 46.6790 } }
+{ "index": {} }
+{ "call_id": "CDR10178", "caller": "+1234567860", "callee": "+1987654491", "call_start": "2025-09-19T11:00:00Z", "call_end": "2025-09-19T11:05:00Z", "call_duration_sec": 300, "call_type": "outgoing", "call_status": "missed", "cell_tower_id": "CT1173", "call_cost": 0.00, "notes": "Missed call", "caller_location": { "lat": 24.7780, "lon": 46.7423 } }
+{ "index": {} }
+{ "call_id": "CDR10179", "caller": "+1234567861", "callee": "+1987654492", "call_start": "2025-09-19T12:00:00Z", "call_end": "2025-09-19T12:20:00Z", "call_duration_sec": 1200, "call_type": "outgoing", "call_status": "completed", "cell_tower_id": "CT1174", "call_cost": 6.80, "notes": "Routine call", "caller_location": { "lat": 24.8038, "lon": 46.7038 } }
+{ "index": {} }
+{ "call_id": "CDR10180", "caller": "+1234567862", "callee": "+1987654493", "call_start": "2025-09-19T13:00:00Z", "call_end": "2025-09-19T13:10:00Z", "call_duration_sec": 600, "call_type": "incoming", "call_status": "completed", "cell_tower_id": "CT1175", "call_cost": 5.20, "notes": "Quick update", "caller_location": { "lat": 24.7038, "lon": 46.8038 } }
+{ "index": {} }
+{ "call_id": "CDR10181", "caller": "+1234567863", "callee": "+1987654494", "call_start": "2025-09-19T14:00:00Z", "call_end": "2025-09-19T14:30:00Z", "call_duration_sec": 1800, "call_type": "outgoing", "call_status": "completed", "cell_tower_id": "CT1176", "call_cost": 9.20, "notes": "Business call", "caller_location": { "lat": 24.7174, "lon": 46.6791 } }
+{ "index": {} }
+{ "call_id": "CDR10182", "caller": "+1234567864", "callee": "+1987654495", "call_start": "2025-09-19T15:00:00Z", "call_end": "2025-09-19T15:05:00Z", "call_duration_sec": 300, "call_type": "outgoing", "call_status": "missed", "cell_tower_id": "CT1177", "call_cost": 0.00, "notes": "Missed call", "caller_location": { "lat": 24.7781, "lon": 46.7424 } }
+{ "index": {} }
+{ "call_id": "CDR10183", "caller": "+1234567865", "callee": "+1987654496", "call_start": "2025-09-19T16:00:00Z", "call_end": "2025-09-19T16:20:00Z", "call_duration_sec": 1200, "call_type": "outgoing", "call_status": "completed", "cell_tower_id": "CT1178", "call_cost": 6.90, "notes": "Routine call", "caller_location": { "lat": 24.8039, "lon": 46.7039 } }
+{ "index": {} }
+{ "call_id": "CDR10184", "caller": "+1234567866", "callee": "+1987654497", "call_start": "2025-09-19T17:00:00Z", "call_end": "2025-09-19T17:10:00Z", "call_duration_sec": 600, "call_type": "incoming", "call_status": "completed", "cell_tower_id": "CT1179", "call_cost": 5.30, "notes": "Quick update", "caller_location": { "lat": 24.7039, "lon": 46.8039 } }
+{ "index": {} }
+{ "call_id": "CDR10185", "caller": "+1234567867", "callee": "+1987654498", "call_start": "2025-09-19T18:00:00Z", "call_end": "2025-09-19T18:30:00Z", "call_duration_sec": 1800, "call_type": "outgoing", "call_status": "completed", "cell_tower_id": "CT1180", "call_cost": 9.30, "notes": "Business call", "caller_location": { "lat": 24.7175, "lon": 46.6792 } }
+{ "index": {} }
+{ "call_id": "CDR10186", "caller": "+1234567868", "callee": "+1987654499", "call_start": "2025-09-19T19:00:00Z", "call_end": "2025-09-19T19:05:00Z", "call_duration_sec": 300, "call_type": "outgoing", "call_status": "missed", "cell_tower_id": "CT1181", "call_cost": 0.00, "notes": "Missed call", "caller_location": { "lat": 24.7782, "lon": 46.7425 } }
+{ "index": {} }
+{ "call_id": "CDR10187", "caller": "+1234567869", "callee": "+1987654500", "call_start": "2025-09-19T20:00:00Z", "call_end": "2025-09-19T20:20:00Z", "call_duration_sec": 1200, "call_type": "outgoing", "call_status": "completed", "cell_tower_id": "CT1182", "call_cost": 7.00, "notes": "Routine call", "caller_location": { "lat": 24.8040, "lon": 46.7040 } }
+{ "index": {} }
+{ "call_id": "CDR10188", "caller": "+1234567870", "callee": "+1987654501", "call_start": "2025-09-19T21:00:00Z", "call_end": "2025-09-19T21:10:00Z", "call_duration_sec": 600, "call_type": "incoming", "call_status": "completed", "cell_tower_id": "CT1183", "call_cost": 5.40, "notes": "Quick update", "caller_location": { "lat": 24.7040, "lon": 46.8040 } }
+{ "index": {} }
+{ "call_id": "CDR10189", "caller": "+1234567871", "callee": "+1987654502", "call_start": "2025-09-19T22:00:00Z", "call_end": "2025-09-19T22:30:00Z", "call_duration_sec": 1800, "call_type": "outgoing", "call_status": "completed", "cell_tower_id": "CT1184", "call_cost": 9.40, "notes": "Business call", "caller_location": { "lat": 24.7176, "lon": 46.6793 } }
+{ "index": {} }
+{ "call_id": "CDR10190", "caller": "+1234567872", "callee": "+1987654503", "call_start": "2025-09-19T23:00:00Z", "call_end": "2025-09-19T23:05:00Z", "call_duration_sec": 300, "call_type": "outgoing", "call_status": "missed", "cell_tower_id": "CT1185", "call_cost": 0.00, "notes": "Missed call", "caller_location": { "lat": 24.7783, "lon": 46.7426 } }
+{ "index": {} }
+{ "call_id": "CDR10191", "caller": "+1234567873", "callee": "+1987654504", "call_start": "2025-09-20T00:00:00Z", "call_end": "2025-09-20T00:20:00Z", "call_duration_sec": 1200, "call_type": "outgoing", "call_status": "completed", "cell_tower_id": "CT1186", "call_cost": 7.10, "notes": "Routine call", "caller_location": { "lat": 24.8041, "lon": 46.7041 } }
+{ "index": {} }
+{ "call_id": "CDR10192", "caller": "+1234567874", "callee": "+1987654505", "call_start": "2025-09-20T01:00:00Z", "call_end": "2025-09-20T01:10:00Z", "call_duration_sec": 600, "call_type": "incoming", "call_status": "completed", "cell_tower_id": "CT1187", "call_cost": 5.50, "notes": "Quick update", "caller_location": { "lat": 24.7041, "lon": 46.8041 } }
+{ "index": {} }
+{ "call_id": "CDR10193", "caller": "+1234567875", "callee": "+1987654506", "call_start": "2025-09-20T02:00:00Z", "call_end": "2025-09-20T02:30:00Z", "call_duration_sec": 1800, "call_type": "outgoing", "call_status": "completed", "cell_tower_id": "CT1188", "call_cost": 9.50, "notes": "Business call", "caller_location": { "lat": 24.7177, "lon": 46.6794 } }
+{ "index": {} }
+{ "call_id": "CDR10194", "caller": "+1234567876", "callee": "+1987654507", "call_start": "2025-09-20T03:00:00Z", "call_end": "2025-09-20T03:05:00Z", "call_duration_sec": 300, "call_type": "outgoing", "call_status": "missed", "cell_tower_id": "CT1189", "call_cost": 0.00, "notes": "Missed call", "caller_location": { "lat": 24.7784, "lon": 46.7427 } }
+{ "index": {} }
+{ "call_id": "CDR10195", "caller": "+1234567877", "callee": "+1987654508", "call_start": "2025-09-20T04:00:00Z", "call_end": "2025-09-20T04:20:00Z", "call_duration_sec": 1200, "call_type": "outgoing", "call_status": "completed", "cell_tower_id": "CT1190", "call_cost": 7.20, "notes": "Routine call", "caller_location": { "lat": 24.8042, "lon": 46.7042 } }
+{ "index": {} }
+{ "call_id": "CDR10196", "caller": "+1234567878", "callee": "+1987654509", "call_start": "2025-09-20T05:00:00Z", "call_end": "2025-09-20T05:10:00Z", "call_duration_sec": 600, "call_type": "incoming", "call_status": "completed", "cell_tower_id": "CT1191", "call_cost": 5.60, "notes": "Quick update", "caller_location": { "lat": 24.7042, "lon": 46.8042 } }
+{ "index": {} }
+{ "call_id": "CDR10197", "caller": "+1234567879", "callee": "+1987654510", "call_start": "2025-09-20T06:00:00Z", "call_end": "2025-09-20T06:30:00Z", "call_duration_sec": 1800, "call_type": "outgoing", "call_status": "completed", "cell_tower_id": "CT1192", "call_cost": 9.60, "notes": "Business call", "caller_location": { "lat": 24.7178, "lon": 46.6795 } }
+{ "index": {} }
+{ "call_id": "CDR10198", "caller": "+1234567880", "callee": "+1987654511", "call_start": "2025-09-20T07:00:00Z", "call_end": "2025-09-20T07:05:00Z", "call_duration_sec": 300, "call_type": "outgoing", "call_status": "missed", "cell_tower_id": "CT1193", "call_cost": 0.00, "notes": "Missed call", "caller_location": { "lat": 24.7785, "lon": 46.7428 } }
+{ "index": {} }
+{ "call_id": "CDR10199", "caller": "+1234567881", "callee": "+1987654512", "call_start": "2025-09-20T08:00:00Z", "call_end": "2025-09-20T08:20:00Z", "call_duration_sec": 1200, "call_type": "outgoing", "call_status": "completed", "cell_tower_id": "CT1194", "call_cost": 7.30, "notes": "Routine call", "caller_location": { "lat": 24.8043, "lon": 46.7043 } }
+{ "index": {} }
+{ "call_id": "CDR10200", "caller": "+1234567882", "callee": "+1987654513", "call_start": "2025-09-20T09:00:00Z", "call_end": "2025-09-20T09:10:00Z", "call_duration_sec": 600, "call_type": "incoming", "call_status": "completed", "cell_tower_id": "CT1195", "call_cost": 5.70, "notes": "Quick update", "caller_location": { "lat": 24.7043, "lon": 46.8043 } }
+{ "index": {} }
+{ "call_id": "CDR10201", "caller": "+1234567883", "callee": "+1987654514", "call_start": "2025-09-20T10:00:00Z", "call_end": "2025-09-20T10:30:00Z", "call_duration_sec": 1800, "call_type": "outgoing", "call_status": "completed", "cell_tower_id": "CT1196", "call_cost": 9.70, "notes": "Business call", "caller_location": { "lat": 24.7179, "lon": 46.6796 } }
+{ "index": {} }
+{ "call_id": "CDR10202", "caller": "+1234567884", "callee": "+1987654515", "call_start": "2025-09-20T11:00:00Z", "call_end": "2025-09-20T11:05:00Z", "call_duration_sec": 300, "call_type": "outgoing", "call_status": "missed", "cell_tower_id": "CT1197", "call_cost": 0.00, "notes": "Missed call", "caller_location": { "lat": 24.7786, "lon": 46.7429 } }
+{ "index": {} }
+{ "call_id": "CDR10203", "caller": "+1234567885", "callee": "+1987654516", "call_start": "2025-09-20T12:00:00Z", "call_end": "2025-09-20T12:20:00Z", "call_duration_sec": 1200, "call_type": "outgoing", "call_status": "completed", "cell_tower_id": "CT1198", "call_cost": 7.40, "notes": "Routine call", "caller_location": { "lat": 24.8044, "lon": 46.7044 } }
+{ "index": {} }
+{ "call_id": "CDR10204", "caller": "+1234567886", "callee": "+1987654517", "call_start": "2025-09-20T13:00:00Z", "call_end": "2025-09-20T13:10:00Z", "call_duration_sec": 600, "call_type": "incoming", "call_status": "completed", "cell_tower_id": "CT1199", "call_cost": 5.80, "notes": "Quick update", "caller_location": { "lat": 24.7044, "lon": 46.8044 } }
+{ "index": {} }
+{ "call_id": "CDR10205", "caller": "+1234567887", "callee": "+1987654518", "call_start": "2025-09-20T14:00:00Z", "call_end": "2025-09-20T14:30:00Z", "call_duration_sec": 1800, "call_type": "outgoing", "call_status": "completed", "cell_tower_id": "CT1200", "call_cost": 9.80, "notes": "Business call", "caller_location": { "lat": 24.7180, "lon": 46.6797 } }
+{ "index": {} }
+{ "call_id": "CDR10206", "caller": "+1234567888", "callee": "+1987654519", "call_start": "2025-09-20T15:00:00Z", "call_end": "2025-09-20T15:05:00Z", "call_duration_sec": 300, "call_type": "outgoing", "call_status": "missed", "cell_tower_id": "CT1201", "call_cost": 0.00, "notes": "Missed call", "caller_location": { "lat": 24.7787, "lon": 46.7430 } }
+{ "index": {} }
+{ "call_id": "CDR10207", "caller": "+1234567889", "callee": "+1987654520", "call_start": "2025-09-20T16:00:00Z", "call_end": "2025-09-20T16:20:00Z", "call_duration_sec": 1200, "call_type": "outgoing", "call_status": "completed", "cell_tower_id": "CT1202", "call_cost": 7.50, "notes": "Routine call", "caller_location": { "lat": 24.8045, "lon": 46.7045 } }
+{ "index": {} }
+{ "call_id": "CDR10208", "caller": "+1234567890", "callee": "+1987654521", "call_start": "2025-09-20T17:00:00Z", "call_end": "2025-09-20T17:10:00Z", "call_duration_sec": 600, "call_type": "incoming", "call_status": "completed", "cell_tower_id": "CT1203", "call_cost": 5.90, "notes": "Quick update", "caller_location": { "lat": 24.7045, "lon": 46.8045 } }
+{ "index": {} }
+{ "call_id": "CDR10209", "caller": "+1234567891", "callee": "+1987654522", "call_start": "2025-09-20T18:00:00Z", "call_end": "2025-09-20T18:30:00Z", "call_duration_sec": 1800, "call_type": "outgoing", "call_status": "completed", "cell_tower_id": "CT1204", "call_cost": 9.90, "notes": "Business call", "caller_location": { "lat": 24.7181, "lon": 46.6798 } }
+{ "index": {} }
+{ "call_id": "CDR10210", "caller": "+1234567892", "callee": "+1987654523", "call_start": "2025-09-20T19:00:00Z", "call_end": "2025-09-20T19:05:00Z", "call_duration_sec": 300, "call_type": "outgoing", "call_status": "missed", "cell_tower_id": "CT1205", "call_cost": 0.00, "notes": "Missed call", "caller_location": { "lat": 24.7788, "lon": 46.7431 } }
+{ "index": {} }
+{ "call_id": "CDR10211", "caller": "+1234567893", "callee": "+1987654524", "call_start": "2025-09-20T20:00:00Z", "call_end": "2025-09-20T20:20:00Z", "call_duration_sec": 1200, "call_type": "outgoing", "call_status": "completed", "cell_tower_id": "CT1206", "call_cost": 7.60, "notes": "Routine call", "caller_location": { "lat": 24.8046, "lon": 46.7046 } }
+{ "index": {} }
+{ "call_id": "CDR10212", "caller": "+1234567894", "callee": "+1987654525", "call_start": "2025-09-20T21:00:00Z", "call_end": "2025-09-20T21:10:00Z", "call_duration_sec": 600, "call_type": "incoming", "call_status": "completed", "cell_tower_id": "CT1207", "call_cost": 6.00, "notes": "Quick update", "caller_location": { "lat": 24.7046, "lon": 46.8046 } }
+{ "index": {} }
+{ "call_id": "CDR10213", "caller": "+1234567895", "callee": "+1987654526", "call_start": "2025-09-20T22:00:00Z", "call_end": "2025-09-20T22:30:00Z", "call_duration_sec": 1800, "call_type": "outgoing", "call_status": "completed", "cell_tower_id": "CT1208", "call_cost": 10.00, "notes": "Business call", "caller_location": { "lat": 24.7182, "lon": 46.6799 } }
+{ "index": {} }
+{ "call_id": "CDR10214", "caller": "+1234567896", "callee": "+1987654527", "call_start": "2025-09-20T23:00:00Z", "call_end": "2025-09-20T23:05:00Z", "call_duration_sec": 300, "call_type": "outgoing", "call_status": "missed", "cell_tower_id": "CT1209", "call_cost": 0.00, "notes": "Missed call", "caller_location": { "lat": 24.7789, "lon": 46.7432 } }
+{ "index": {} }
+{ "call_id": "CDR10215", "caller": "+1234567897", "callee": "+1987654528", "call_start": "2025-09-21T00:00:00Z", "call_end": "2025-09-21T00:20:00Z", "call_duration_sec": 1200, "call_type": "outgoing", "call_status": "completed", "cell_tower_id": "CT1210", "call_cost": 7.70, "notes": "Routine call", "caller_location": { "lat": 24.8047, "lon": 46.7047 } }
+{ "index": {} }
+{ "call_id": "CDR10216", "caller": "+1234567898", "callee": "+1987654529", "call_start": "2025-09-21T01:00:00Z", "call_end": "2025-09-21T01:10:00Z", "call_duration_sec": 600, "call_type": "incoming", "call_status": "completed", "cell_tower_id": "CT1211", "call_cost": 6.10, "notes": "Quick update", "caller_location": { "lat": 24.7047, "lon": 46.8047 } }
+{ "index": {} }
+{ "call_id": "CDR10217", "caller": "+1234567899", "callee": "+1987654530", "call_start": "2025-09-21T02:00:00Z", "call_end": "2025-09-21T02:30:00Z", "call_duration_sec": 1800, "call_type": "outgoing", "call_status": "completed", "cell_tower_id": "CT1212", "call_cost": 10.10, "notes": "Business call", "caller_location": { "lat": 24.7183, "lon": 46.6800 } }
+{ "index": {} }
+{ "call_id": "CDR10218", "caller": "+1234567800", "callee": "+1987654531", "call_start": "2025-09-21T03:00:00Z", "call_end": "2025-09-21T03:05:00Z", "call_duration_sec": 300, "call_type": "outgoing", "call_status": "missed", "cell_tower_id": "CT1213", "call_cost": 0.00, "notes": "Missed call", "caller_location": { "lat": 24.7790, "lon": 46.7433 } }

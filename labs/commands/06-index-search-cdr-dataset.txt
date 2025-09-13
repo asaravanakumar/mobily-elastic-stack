@@ -1,0 +1,262 @@
+###################################
+#GitBash/Linux/Mac
+###################################
+
+# Navigate to mobily-elastic-stack/labs/dataset/telco-dataset
+
+#Set Password
+export ELASTIC_PASSWORD=<generated_password>
+
+# Get information about the 'cdr' index
+curl -k -u elastic:$ELASTIC_PASSWORD -XGET "https://localhost:9200/cdr?pretty"
+
+# Get the mappings of the 'cdr' index
+curl -k -u elastic:$ELASTIC_PASSWORD -XGET "https://localhost:9200/cdr/_mappings?pretty"
+
+# Delete the 'cdr' index
+curl -k -u elastic:$ELASTIC_PASSWORD -XDELETE "https://localhost:9200/cdr?pretty"
+
+# Add a single CDR document to the 'cdr' index
+curl -k -u elastic:$ELASTIC_PASSWORD -X POST "https://localhost:9200/cdr/_doc" -H "Content-Type: application/json" -d '{"call_id": "CDR10000", "caller": "+16921200568", "callee": "+11567569532", "call_start": "2025-03-04T01:21:15Z", "call_end": "2025-03-04T01:33:55Z", "call_duration_sec": 760, "call_type": "incoming call", "call_status": "dropped", "cell_tower_id": "CT1014", "call_cost": 3.11, "notes": "Business Call", "caller_location": {"lat": 24.7136, "lon": 46.6753}}'
+
+# Search all documents in the 'cdr' index
+curl -k -u elastic:$ELASTIC_PASSWORD -X POST "https://localhost:9200/cdr/_search?pretty"
+
+# Create the 'cdr' index with specific mappings
+curl -k -u elastic:$ELASTIC_PASSWORD -XPUT "https://localhost:9200/cdr" -H "Content-Type: application/json" -d '{
+  "mappings": {
+    "properties": {
+      "call_id":           { "type": "keyword" },
+      "caller":            { "type": "keyword" },
+      "callee":            { "type": "keyword" },
+      "call_start":        { "type": "date", "format": "strict_date_time" },
+      "call_end":          { "type": "date", "format": "strict_date_time" },
+      "call_duration_sec": { "type": "integer" },
+      "call_type":         { "type": "keyword" },
+      "call_status":       { "type": "keyword" },
+      "cell_tower_id":     { "type": "keyword" },
+      "call_cost":         { "type": "float" },
+      "message":           { "type": "text" },
+      "caller_location":   { "type": "geo_point" }
+    }
+  }
+}'
+
+# Bulk insert multiple CDR documents into the 'cdr' index
+curl -k -u elastic:$ELASTIC_PASSWORD -XPOST "https://localhost:9200/cdr/_bulk" -H "Content-Type: application/x-ndjson" -d '
+
+{ "call_id": "CDR10001", "caller": "+1234567890", "callee": "+1987654321", "call_start": "2025-09-10T09:30:00Z", "call_end": "2025-09-10T09:45:00Z", "call_duration_sec": 900, "call_type": "outgoing", "call_status": "completed", "cell_tower_id": "CT1001", "call_cost": 2.75 }
+{ "index": {} }
+{ "call_id": "CDR10002", "caller": "+1234567890", "callee": "+1123456789", "call_start": "2025-09-10T10:00:00Z", "call_end": "2025-09-10T10:05:00Z", "call_duration_sec": 300, "call_type": "incoming", "call_status": "missed", "cell_tower_id": "CT1002", "call_cost": 0.00 }
+{ "index": {} }
+{ "call_id": "CDR10003", "caller": "+1098765432", "callee": "+1234567890", "call_start": "2025-09-10T11:15:00Z", "call_end": "2025-09-10T11:45:00Z", "call_duration_sec": 1800, "call_type": "outgoing", "call_status": "completed", "cell_tower_id": "CT1001", "call_cost": 5.50 }
+{ "index": {} }
+{ "call_id": "CDR10004", "caller": "+1987654321", "callee": "+1234567890", "call_start": "2025-09-11T14:30:00Z", "call_end": "2025-09-11T14:45:00Z", "call_duration_sec": 900, "call_type": "incoming", "call_status": "completed", "cell_tower_id": "CT1003", "call_cost": 2.75 }
+{ "index": {} }
+{ "call_id": "CDR10005", "caller": "+1123456789", "callee": "+1987654321", "call_start": "2025-09-11T15:00:00Z", "call_end": "2025-09-11T15:30:00Z", "call_duration_sec": 1800, "call_type": "outgoing", "call_status": "completed", "cell_tower_id": "CT1002", "call_cost": 5.50 }
+{ "index": {} }
+{ "call_id": "CDR10006", "caller": "+1234509876", "callee": "+1098765432", "call_start": "2025-09-11T16:00:00Z", "call_end": "2025-09-11T16:05:00Z", "call_duration_sec": 300, "call_type": "outgoing", "call_status": "missed", "cell_tower_id": "CT1001", "call_cost": 0.00 }
+{ "index": {} }
+{ "call_id": "CDR10007", "caller": "+1234509876", "callee": "+1098765432", "call_start": "2025-09-11T17:00:00Z", "call_end": "2025-09-11T17:20:00Z", "call_duration_sec": 1200, "call_type": "outgoing", "call_status": "completed", "cell_tower_id": "CT1003", "call_cost": 3.67 }
+{ "index": {} }
+{ "call_id": "CDR10008", "caller": "+1987654321", "callee": "+1123456789", "call_start": "2025-09-12T09:00:00Z", "call_end": "2025-09-12T09:10:00Z", "call_duration_sec": 600, "call_type": "incoming", "call_status": "completed", "cell_tower_id": "CT1002", "call_cost": 1.83 }
+'
+
+# Get the count of documents in the 'cdr' index
+curl -k -u elastic:$ELASTIC_PASSWORD -XGET "https://localhost:9200/cdr/_count?pretty"
+
+# Delete the 'cdr' index (again)
+curl -k -u elastic:$ELASTIC_PASSWORD -XDELETE "https://localhost:9200/cdr?pretty"
+
+# Create the 'cdr' index using mapping from a JSON file
+curl -k -u elastic:$ELASTIC_PASSWORD -H "Content-Type: application/json" -XPUT 'https://127.0.0.1:9200/cdr/' --data-binary @cdr-mapping.json
+
+# Get the mappings of the 'cdr' index (again)
+curl -k -u elastic:$ELASTIC_PASSWORD -XGET "https://localhost:9200/cdr/_mappings?pretty"
+
+# Bulk insert CDR documents from a JSON file
+curl -k -u elastic:$ELASTIC_PASSWORD -H "Content-Type: application/json" -XPUT 'https://127.0.0.1:9200/cdr/_bulk' --data-binary @cdr-dataset-bulk.json
+
+# Get the count of documents in the 'cdr' index (again)
+curl -k -u elastic:$ELASTIC_PASSWORD -XGET "https://localhost:9200/cdr/_count?pretty"
+
+# Search all documents in the 'cdr' index (again)
+curl -k -u elastic:$ELASTIC_PASSWORD -XGET "https://localhost:9200/cdr/_search?pretty" 
+
+# Search for documents where the 'notes' field contains "Business Call"
+curl -k -u elastic:$ELASTIC_PASSWORD -XGET "https://localhost:9200/cdr/_search?pretty" -H "Content-Type: application/json" -d '{
+  "query": {
+    "match": {
+      "notes": "Business Call"
+    }
+  }
+}'
+
+# Search for documents where any field contains the word "call"
+curl -k -u elastic:$ELASTIC_PASSWORD -XGET "https://localhost:9200/cdr/_search?pretty" -H "Content-Type: application/json" -d '{
+  "query": {
+    "query_string": {
+      "query": "call"
+    }
+  }
+}'
+
+# Search for documents within 5km of a specific geo location
+curl -k -u elastic:$ELASTIC_PASSWORD -XGET "https://localhost:9200/cdr/_search?pretty" -H "Content-Type: application/json" -d '{
+  "query": {
+    "geo_distance": {
+      "distance": "5km",
+      "caller_location": {
+        "lat": 24.7136,
+        "lon": 46.6753
+      }
+    }
+  }
+}'
+
+# Search for documents with 'call_start' in a specific date range
+curl -k -u elastic:$ELASTIC_PASSWORD -XGET "https://localhost:9200/cdr/_search?pretty" -H "Content-Type: application/json" -d '{
+  "query": {
+    "range": {
+      "call_start": {
+        "gte": "2025-09-10T09:00:00Z",
+        "lte": "2025-09-11T10:00:00Z"
+      }
+    }
+  }
+}'
+
+# Delete the 'cdr' index (final cleanup)
+curl -k -u elastic:$ELASTIC_PASSWORD -H "Content-Type: application/json" -XDELETE 'https://127.0.0.1:9200/cdr?pretty'
+
+###################################
+#Windows
+###################################
+
+# Navigate to mobily-elastic-stack/labs/dataset/telco-dataset
+
+#Set Password
+set ELASTIC_PASSWORD=<generated_password>
+
+# Get information about the 'cdr' index
+curl -k -u elastic:%ELASTIC_PASSWORD% -XGET "https://localhost:9200/cdr?pretty"
+
+# Get the mappings of the 'cdr' index
+curl -k -u elastic:%ELASTIC_PASSWORD% -XGET "https://localhost:9200/cdr/_mappings?pretty"
+
+# Delete the 'cdr' index
+curl -k -u elastic:%ELASTIC_PASSWORD% -XDELETE "https://localhost:9200/cdr?pretty"
+
+# Add a single CDR document to the 'cdr' index
+curl -k -u elastic:%ELASTIC_PASSWORD% -X POST "https://localhost:9200/cdr/_doc" -H "Content-Type: application/json" -d "{\"call_id\": \"CDR10000\", \"caller\": \"+16921200568\", \"callee\": \"+11567569532\", \"call_start\": \"2025-03-04T01:21:15Z\", \"call_end\": \"2025-03-04T01:33:55Z\", \"call_duration_sec\": 760, \"call_type\": \"incoming call\", \"call_status\": \"dropped\", \"cell_tower_id\": \"CT1014\", \"call_cost\": 3.11, \"notes\": \"Business Call\", \"caller_location\": {\"lat\": 24.7136, \"lon\": 46.6753}}"
+
+# Search all documents in the 'cdr' index
+curl -k -u elastic:%ELASTIC_PASSWORD% -X POST "https://localhost:9200/cdr/_search?pretty"
+
+# Create the 'cdr' index with specific mappings
+curl -k -u elastic:%ELASTIC_PASSWORD% -XPUT "https://localhost:9200/cdr" -H "Content-Type: application/json" -d '{
+    "mappings": {
+    "properties": {
+      "call_id":           { "type": "keyword" },
+      "caller":            { "type": "keyword" },
+      "callee":            { "type": "keyword" },
+      "call_start":        { "type": "date", "format": "strict_date_time" },
+      "call_end":          { "type": "date", "format": "strict_date_time" },
+      "call_duration_sec": { "type": "integer" },
+      "call_type":         { "type": "keyword" },
+      "call_status":       { "type": "keyword" },
+      "cell_tower_id":     { "type": "keyword" },
+      "call_cost":         { "type": "float" },
+      "message":           { "type": "text" },
+      "caller_location":   { "type": "geo_point" }
+    }
+  }
+}'
+
+# Bulk insert multiple CDR documents into the 'cdr' index
+curl -k -u elastic:%ELASTIC_PASSWORD% -XPOST "https://localhost:9200/cdr/_bulk" -H "Content-Type: application/x-ndjson" -d '
+
+{ "call_id": "CDR10001", "caller": "+1234567890", "callee": "+1987654321", "call_start": "2025-09-10T09:30:00Z", "call_end": "2025-09-10T09:45:00Z", "call_duration_sec": 900, "call_type": "outgoing", "call_status": "completed", "cell_tower_id": "CT1001", "call_cost": 2.75 }
+{ "index": {} }
+{ "call_id": "CDR10002", "caller": "+1234567890", "callee": "+1123456789", "call_start": "2025-09-10T10:00:00Z", "call_end": "2025-09-10T10:05:00Z", "call_duration_sec": 300, "call_type": "incoming", "call_status": "missed", "cell_tower_id": "CT1002", "call_cost": 0.00 }
+{ "index": {} }
+{ "call_id": "CDR10003", "caller": "+1098765432", "callee": "+1234567890", "call_start": "2025-09-10T11:15:00Z", "call_end": "2025-09-10T11:45:00Z", "call_duration_sec": 1800, "call_type": "outgoing", "call_status": "completed", "cell_tower_id": "CT1001", "call_cost": 5.50 }
+{ "index": {} }
+{ "call_id": "CDR10004", "caller": "+1987654321", "callee": "+1234567890", "call_start": "2025-09-11T14:30:00Z", "call_end": "2025-09-11T14:45:00Z", "call_duration_sec": 900, "call_type": "incoming", "call_status": "completed", "cell_tower_id": "CT1003", "call_cost": 2.75 }
+{ "index": {} }
+{ "call_id": "CDR10005", "caller": "+1123456789", "callee": "+1987654321", "call_start": "2025-09-11T15:00:00Z", "call_end": "2025-09-11T15:30:00Z", "call_duration_sec": 1800, "call_type": "outgoing", "call_status": "completed", "cell_tower_id": "CT1002", "call_cost": 5.50 }
+{ "index": {} }
+{ "call_id": "CDR10006", "caller": "+1234509876", "callee": "+1098765432", "call_start": "2025-09-11T16:00:00Z", "call_end": "2025-09-11T16:05:00Z", "call_duration_sec": 300, "call_type": "outgoing", "call_status": "missed", "cell_tower_id": "CT1001", "call_cost": 0.00 }
+{ "index": {} }
+{ "call_id": "CDR10007", "caller": "+1234509876", "callee": "+1098765432", "call_start": "2025-09-11T17:00:00Z", "call_end": "2025-09-11T17:20:00Z", "call_duration_sec": 1200, "call_type": "outgoing", "call_status": "completed", "cell_tower_id": "CT1003", "call_cost": 3.67 }
+{ "index": {} }
+{ "call_id": "CDR10008", "caller": "+1987654321", "callee": "+1123456789", "call_start": "2025-09-12T09:00:00Z", "call_end": "2025-09-12T09:10:00Z", "call_duration_sec": 600, "call_type": "incoming", "call_status": "completed", "cell_tower_id": "CT1002", "call_cost": 1.83 }
+'
+
+# Get the count of documents in the 'cdr' index
+curl -k -u elastic:%ELASTIC_PASSWORD% -XGET "https://localhost:9200/cdr/_count?pretty"
+
+# Delete the 'cdr' index (again)
+curl -k -u elastic:%ELASTIC_PASSWORD% -XDELETE "https://localhost:9200/cdr?pretty"
+
+# Create the 'cdr' index using mapping from a JSON file
+curl -k -u elastic:%ELASTIC_PASSWORD% -H "Content-Type: application/json" -XPUT "https://127.0.0.1:9200/cdr/" --data-binary @cdr-mapping.json
+
+# Get the mappings of the 'cdr' index (again)
+curl -k -u elastic:%ELASTIC_PASSWORD% -XGET "https://localhost:9200/cdr/_mappings?pretty"
+
+# Bulk insert CDR documents from a JSON file
+curl -k -u elastic:%ELASTIC_PASSWORD% -H "Content-Type: application/json" -XPUT "https://127.0.0.1:9200/cdr/_bulk" --data-binary @cdr-dataset-bulk.json
+
+# Get the count of documents in the 'cdr' index (again)
+curl -k -u elastic:%ELASTIC_PASSWORD% -XGET "https://localhost:9200/cdr/_count?pretty"
+
+# Search all documents in the 'cdr' index (again)
+curl -k -u elastic:%ELASTIC_PASSWORD% -XGET "https://localhost:9200/cdr/_search?pretty" 
+
+# Search for documents where the 'notes' field contains "Business Call"
+curl -k -u elastic:%ELASTIC_PASSWORD% -XGET "https://localhost:9200/cdr/_search?pretty" -H "Content-Type: application/json" -d '{
+  "query": {
+    "match": {
+      "notes": "Business Call"
+    }
+  }
+}'
+
+# Search for documents where any field contains the word "call"
+curl -k -u elastic:%ELASTIC_PASSWORD% -XGET "https://localhost:9200/cdr/_search?pretty" -H "Content-Type: application/json" -d '{
+  "query": {
+    "query_string": {
+      "query": "call"
+    }
+  }
+}'
+
+# Search for documents within 5km of a specific geo location
+curl -k -u elastic:%ELASTIC_PASSWORD% -XGET "https://localhost:9200/cdr/_search?pretty" -H "Content-Type: application/json" -d '{
+  "query": {
+    "geo_distance": {
+      "distance": "5km",
+      "caller_location": {
+        "lat": 24.7136,
+        "lon": 46.6753
+      }
+    }
+  }
+}'
+
+# Search for documents with 'call_start' in a specific date range
+curl -k -u elastic:%ELASTIC_PASSWORD% -XGET "https://localhost:9200/cdr/_search?pretty" -H "Content-Type: application/json" -d '{
+  "query": {
+    "range": {
+      "call_start": {
+        "gte": "2025-09-10T09:00:00Z",
+        "lte": "2025-09-11T10:00:00Z"
+      }
+    }
+  }
+}'
+
+# Delete the 'cdr' index (final cleanup)
+curl -k -u elastic:%ELASTIC_PASSWORD% -H "Content-Type: application/json" -XDELETE "https://127.0.0.1:9200/cdr?pretty"
+

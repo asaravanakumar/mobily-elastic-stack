@@ -1,0 +1,18 @@
+{
+  "mappings": {
+    "properties": {
+      "call_id":           { "type": "keyword" },
+      "caller":            { "type": "keyword" },
+      "callee":            { "type": "keyword" },
+      "call_start":        { "type": "date", "format": "strict_date_time" },
+      "call_end":          { "type": "date", "format": "strict_date_time" },
+      "call_duration_sec": { "type": "integer" },
+      "call_type":         { "type": "keyword" },
+      "call_status":       { "type": "keyword" },
+      "cell_tower_id":     { "type": "keyword" },
+      "call_cost":         { "type": "float" },
+      "message":           { "type": "text" },
+      "caller_location": { "type": "geo_point" }
+    }
+  }
+}
