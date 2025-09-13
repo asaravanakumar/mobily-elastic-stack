@@ -1,0 +1,47 @@
+# Assignment 1: Basic Queries
+
+1. Retrieve all completed outgoing calls.
+2. Find all calls with duration greater than 20 minutes (1200 seconds).
+3. Get all calls where the caller is +1234567890.
+4. Fetch all missed calls.
+5. List all calls that happened on 2025-09-12.
+
+# Assignment 2: Aggregations
+
+1. Find the total call cost per caller.
+2. Compute the average call duration grouped by call type.
+3. Identify the top 5 callers by total call cost.
+4. Find the distribution of calls per call status.
+5. Find the maximum call duration per cell tower.
+
+# Assignment 3: Time-based Analysis
+
+1. Get the number of calls per day.
+2. Find the total call duration for each hour of the day.
+3. Identify the busiest day (most calls) in the dataset.
+4. Calculate the average call cost per day.
+5. Find all calls made during working hours (09:00–18:00).
+
+# Assignment 4: Geo Queries
+
+1. Find all calls originating within 5 km of (24.7136, 46.6753).
+2. Find calls within a 10 km radius of (24.8000, 46.7000) where call status is completed.
+3. Group completed calls by cell tower and return their average distance from (24.7136, 46.6753).
+4. Identify all callers who made calls from at least two different geo-locations.
+5. Find the top 3 cell towers by total call cost.
+
+# Assignment 5: Complex Queries
+
+1. Get all business-related calls (notes contains “business”) longer than 10 minutes.
+2. Find calls that were dropped and lasted longer than 5 minutes.
+3. Identify callers who made both completed and missed calls.
+4. Find the total call cost for each caller where at least one call exceeded 30 minutes.
+5. Retrieve calls where the same caller contacted at least 3 unique callees.
+
+# Assignment 6: Advanced Scenarios
+
+1. Detect potential fraud: find callers with more than 5 missed calls in one day.
+2. Find callers who made calls across at least 3 different cell towers.
+3. Identify the top 3 most expensive calls and the cell towers they used.
+4. Find the longest business call per day.
+5. Identify callers who made at least one call every day in the dataset.
