@@ -7,8 +7,8 @@
 #Set Password
 export ELASTIC_PASSWORD=<generated_password>
 
-# Get information about the 'cdr' index
-curl -k -u elastic:$ELASTIC_PASSWORD -XGET "https://localhost:9200/cdr?pretty"
+# Create a 'cdr' index
+curl -k -u elastic:$ELASTIC_PASSWORD -XPUT "https://localhost:9200/cdr?pretty"
 
 # Get the mappings of the 'cdr' index
 curl -k -u elastic:$ELASTIC_PASSWORD -XGET "https://localhost:9200/cdr/_mappings?pretty"
@@ -139,7 +139,7 @@ curl -k -u elastic:$ELASTIC_PASSWORD -H "Content-Type: application/json" -XDELET
 set ELASTIC_PASSWORD=<generated_password>
 
 # Get information about the 'cdr' index
-curl -k -u elastic:%ELASTIC_PASSWORD% -XGET "https://localhost:9200/cdr?pretty"
+curl -k -u elastic:%ELASTIC_PASSWORD% -XPUT "https://localhost:9200/cdr?pretty"
 
 # Get the mappings of the 'cdr' index
 curl -k -u elastic:%ELASTIC_PASSWORD% -XGET "https://localhost:9200/cdr/_mappings?pretty"
