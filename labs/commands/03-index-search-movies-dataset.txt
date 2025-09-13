@@ -6,7 +6,7 @@
 export ELASTIC_PASSWORD=<generated_password>
 
 # Create Movies index with empty mapping
-# curl -k -u elastic:$ELASTIC_PASSWORD -XPUT https://127.0.0.1:9200/movies?pretty
+# curl -k -u elastic:$ELASTIC_PASSWORD -XPUT https://127.0.0.1:9200/movies
 
 # Create Movies index with mapping?pretty
 curl -k -u elastic:$ELASTIC_PASSWORD -H "Content-Type: application/json" -XPUT https://127.0.0.1:9200/movies -d '
@@ -22,7 +22,7 @@ curl -k -u elastic:$ELASTIC_PASSWORD -H "Content-Type: application/json" -XPUT h
 
 
 # View Mapping
-curl -k -u elastic:$ELASTIC_PASSWORD -XGET https://127.0.0.1:9200/movies/_mapping?pretty
+curl -k -u elastic:$ELASTIC_PASSWORD -XGET https://127.0.0.1:9200/movies/_mapping
 
 # Insert Movie document
 curl -k -u elastic:$ELASTIC_PASSWORD -H "Content-Type: application/json" -XPUT https://127.0.0.1:9200/movies/_doc/1 -d '
@@ -72,6 +72,9 @@ curl -k -u elastic:$ELASTIC_PASSWORD -H "Content-Type: application/json" -XPOST 
 
 # Delete a movie document
 curl -k -u elastic:$ELASTIC_PASSWORD -XDELETE 'https://127.0.0.1:9200/movies/_doc/135569?pretty'
+
+# Delete movies index
+curl -k -u elastic:$ELASTIC_PASSWORD -XDELETE 'https://127.0.0.1:9200/movies'
 
 
 

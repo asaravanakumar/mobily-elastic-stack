@@ -52,6 +52,7 @@ POST		https://localhost:9200/employee/_update/2		=> Update document. Does noop (
 ## Create and Manage Documents with cURL (GitBash/Linux/Mac)
 
 export ELASTIC_PASSWORD=<generated_password>
+xmop0F3Hs6qmxydAWGmC
 
 #Create
 curl -k -u elastic:$ELASTIC_PASSWORD -XPOST "https://localhost:9200/employee/_doc/1?pretty" -H 'Content-Type: application/json' -d '{"name": "Sachin","dept": "IT","location": "Bengaluru"}'
@@ -88,6 +89,8 @@ curl -k -u elastic:%ELASTIC_PASSWORD%  -XDELETE "https://localhost:9200/employee
 #Search
 curl -k -u elastic:%ELASTIC_PASSWORD% -XGET "https://localhost:9200/employee/_search?pretty" 
 
+#Delete Index
+curl -k -u elastic:$ELASTIC_PASSWORD -XDELETE "https://localhost:9200/employee"
 
 ## Indexing Books dataset
 
@@ -174,3 +177,6 @@ curl -k -u elastic:$ELASTIC_PASSWORD -X GET "https://localhost:9200/books/_searc
   }
 }
 '
+
+#Delete Index
+curl -k -u elastic:$ELASTIC_PASSWORD -XDELETE "https://localhost:9200/books"
