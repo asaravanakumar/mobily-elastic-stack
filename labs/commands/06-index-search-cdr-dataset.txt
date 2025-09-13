@@ -42,6 +42,55 @@ curl -k -u elastic:$ELASTIC_PASSWORD -XPUT "https://localhost:9200/cdr" -H "Cont
   }
 }'
 
+# Create the 'cdr' index with specific mappings and analyser
+curl -k -u elastic:$ELASTIC_PASSWORD -XPUT "https://localhost:9200/cdr" -H "Content-Type: application/json" -d '{
+  "settings": {
+    "analysis": {
+      "tokenizer": {
+        "edge_ngram_tokenizer": {
+          "type": "edge_ngram",
+          "min_gram": 2,
+          "max_gram": 10,
+          "token_chars": [
+            "letter",
+            "digit"
+          ]
+        }
+      },
+      "analyzer": {
+        "notes_edge_ngram_analyzer": {
+          "type": "custom",
+          "tokenizer": "edge_ngram_tokenizer",
+          "filter": [
+            "lowercase"
+          ]
+        }
+      }
+    }
+  },
+  "mappings": {
+    "properties": {
+      "call_id":           { "type": "keyword" },
+      "caller":            { "type": "keyword" },
+      "callee":            { "type": "keyword" },
+      "call_start":        { "type": "date", "format": "strict_date_time" },
+      "call_end":          { "type": "date", "format": "strict_date_time" },
+      "call_duration_sec": { "type": "integer" },
+      "call_type":         { "type": "keyword" },
+      "call_status":       { "type": "keyword" },
+      "cell_tower_id":     { "type": "keyword" },
+      "call_cost":         { "type": "float" },
+      "message":           { "type": "text" },
+      "caller_location":   { "type": "geo_point" },
+      "notes": {
+        "type": "text",
+        "analyzer": "notes_edge_ngram_analyzer",
+        "search_analyzer": "standard"
+      }
+    }
+  }
+}'
+
 # Bulk insert multiple CDR documents into the 'cdr' index
 curl -k -u elastic:$ELASTIC_PASSWORD -XPOST "https://localhost:9200/cdr/_bulk" -H "Content-Type: application/x-ndjson" -d '
 
@@ -73,6 +122,15 @@ curl -k -u elastic:$ELASTIC_PASSWORD -H "Content-Type: application/json" -XPUT '
 
 # Get the mappings of the 'cdr' index (again)
 curl -k -u elastic:$ELASTIC_PASSWORD -XGET "https://localhost:9200/cdr/_mappings?pretty"
+
+# Bulk insert CDR documents from a JSON file
+curl -k -u elastic:$ELASTIC_PASSWORD -H "Content-Type: application/json" -XPUT 'https://127.0.0.1:9200/cdr/_bulk' --data-binary @cdr-dataset-bulk.json
+
+# Delete the 'cdr' index (again)
+curl -k -u elastic:$ELASTIC_PASSWORD -XDELETE "https://localhost:9200/cdr?pretty"
+
+# Create the 'cdr' index using mapping and analzyer from a JSON file
+curl -k -u elastic:$ELASTIC_PASSWORD -H "Content-Type: application/json" -XPUT 'https://127.0.0.1:9200/cdr' --data-binary @cdr-analyzer.json
 
 # Bulk insert CDR documents from a JSON file
 curl -k -u elastic:$ELASTIC_PASSWORD -H "Content-Type: application/json" -XPUT 'https://127.0.0.1:9200/cdr/_bulk' --data-binary @cdr-dataset-bulk.json
@@ -207,6 +265,15 @@ curl -k -u elastic:%ELASTIC_PASSWORD% -XGET "https://localhost:9200/cdr/_mapping
 
 # Bulk insert CDR documents from a JSON file
 curl -k -u elastic:%ELASTIC_PASSWORD% -H "Content-Type: application/json" -XPUT "https://127.0.0.1:9200/cdr/_bulk" --data-binary @cdr-dataset-bulk.json
+
+# Delete the 'cdr' index (again)
+curl -k -u elastic:%ELASTIC_PASSWORD% -XDELETE "https://localhost:9200/cdr?pretty"
+
+# Create the 'cdr' index using mapping and analzyer from a JSON file
+curl -k -u elastic:%ELASTIC_PASSWORD% -H "Content-Type: application/json" -XPUT 'https://127.0.0.1:9200/cdr' --data-binary @cdr-analyzer.json
+
+# Bulk insert CDR documents from a JSON file
+curl -k -u elastic:%ELASTIC_PASSWORD% -H "Content-Type: application/json" -XPUT 'https://127.0.0.1:9200/cdr/_bulk' --data-binary @cdr-dataset-bulk.json
 
 # Get the count of documents in the 'cdr' index (again)
 curl -k -u elastic:%ELASTIC_PASSWORD% -XGET "https://localhost:9200/cdr/_count?pretty"
