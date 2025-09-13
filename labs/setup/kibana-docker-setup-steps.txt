@@ -1,0 +1,28 @@
+
+
+#STEP 1: Pull the Kibana image
+docker pull docker.elastic.co/kibana/kibana:9.1.0
+
+
+#STEP 2: Start Kibana in Docker
+docker run -d --name kibana --net elastic -p 5601:5601 docker.elastic.co/kibana/kibana:9.1.0
+
+
+#STEP 3: When you start Kibana, a unique URL is output to your terminal. To access Kibana:
+
+#Open the generated URL in your browser.
+#Paste the enrollment token that you copied earlier from Elasticsearch container logs, to connect your Kibana instance with Elasticsearch. (It's valid only for 30 mins)
+
+#If it got expired, regenerate the enrolment token as follows
+docker exec -it your_elasticsearch_container_id_or_name /bin/bash bin/elasticsearch-create-enrollment-token -s kibana
+e.g: docker exec -it es01 /bin/bash bin/elasticsearch-create-enrollment-token -s kibana
+
+#STEP 4: Log in to Kibana as the elastic user with the password that was generated when you started Elasticsearch.
+
+
+#STEP 5: Login to Kibana and send request to Elasticsearch
+# Open Kibana’s main menu ("☰" near Elastic logo) and go to Dev Tools > Console and make below request
+
+GET _search
+
+#You'll get response with all the available documents in Elasticsearch

@@ -1,0 +1,79 @@
+
+#GitBash/Linux/Mac
+
+# Navigate to mobily-elastic-stack/labs/dataset/movie-dataset
+
+#Set Password
+export ELASTIC_PASSWORD=<generated_password>
+
+# Relational Data Modeling example
+
+# Delete the movie index
+curl -k -u elastic:$ELASTIC_PASSWORD -XDELETE 'https://127.0.0.1:9200/movies?pretty'
+
+# Delete the series index (if exists)
+curl -k -u elastic:$ELASTIC_PASSWORD -XDELETE 'https://127.0.0.1:9200/series?pretty'
+
+# Create series index
+
+curl -k -u elastic:$ELASTIC_PASSWORD -H "Content-Type: application/json" -XPUT https://127.0.0.1:9200/series?pretty -d '
+{
+	"mappings": {
+    		"properties": {
+			"film_to_franchise": {
+				"type": "join",
+				"relations": { "franchise": "film" }
+			}
+    		}
+	}
+}'
+
+# View Mapping
+curl -k -u elastic:$ELASTIC_PASSWORD -XGET https://127.0.0.1:9200/series/_mapping?pretty
+
+
+# Bulk index series data
+curl -k -u elastic:$ELASTIC_PASSWORD -XPUT -H "Content-Type: application/json" 'https://127.0.0.1:9200/series/_bulk?pretty' --data-binary @series.json
+
+# View the indexed series data
+curl -k -u elastic:$ELASTIC_PASSWORD -XGET 'https://127.0.0.1:9200/series?pretty'
+
+# Search with parent
+curl -k -u elastic:$ELASTIC_PASSWORD -XGET -H "Content-Type: application/json" 'https://127.0.0.1:9200/series/_search?pretty' -d '
+{
+	"query" : {
+		"has_parent" : {
+			"parent_type" : "franchise",
+			"query" : {
+				"match" : { 
+					"title" : "Star Wars"
+				}	
+			}
+			
+		}
+
+	}
+}'
+
+
+# Search with child
+curl -k -u elastic:$ELASTIC_PASSWORD -XGET -H "Content-Type: application/json" 'https://127.0.0.1:9200/series/_search?pretty' -d '
+{
+	"query" : {
+		"has_child" : {
+			"type" : "film",
+			"query" : {
+				"match" : { 
+					"title" : "The Force Awakens"
+				}	
+			}
+			
+		}
+
+	}
+}'
+
+
+
+
+ 
