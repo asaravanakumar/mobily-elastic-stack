@@ -1,0 +1,43 @@
+services:
+
+  metricbeat:
+    image: docker.elastic.co/beats/metricbeat:9.1.0
+    user: root
+    networks:
+      - setup_default
+    volumes:
+      - ./metricbeat.yml:/usr/share/metricbeat/metricbeat.yml
+      - /proc:/hostfs/proc:ro
+      - /sys/fs/cgroup:/hostfs/sys/fs/cgroup:ro
+      - /:/hostfs:ro
+    command: ["--strict.perms=false"]
+
+  redis:
+    image: redis:7.2-alpine
+    container_name: redis
+    networks:
+      - setup_default
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    command: ["redis-server", "--appendonly", "yes"]
+
+  filebeat:
+    image: docker.elastic.co/beats/filebeat:9.1.0
+    user: root
+    networks:
+      - setup_default
+    volumes:
+      - ./filebeat.yml:/usr/share/filebeat/filebeat.yml
+      - /var/lib/docker/containers:/var/lib/docker/containers:ro
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    command: ["--strict.perms=false"]
+
+networks:
+  setup_default:
+    external: true
+
+volumes:
+  redis_data:
+

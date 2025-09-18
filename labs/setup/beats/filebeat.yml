@@ -1,0 +1,36 @@
+filebeat.inputs:
+- type: container
+  paths:
+    - '/var/lib/docker/containers/*/*.log'
+
+processors:
+  - add_host_metadata: ~
+  - add_cloud_metadata: ~
+  - add_docker_metadata: ~
+
+output.logstash:
+  hosts: ["logstash:5044"]
+  # ssl.enabled: true
+  # ssl.certificate_authorities: ["/usr/share/filebeat/certs/ca/ca.crt"]
+  # ssl.certificate: "/usr/share/filebeat/certs/filebeat/filebeat.crt"
+  # ssl.key: "/usr/share/filebeat/certs/filebeat/filebeat.key"
+
+logging.level: info
+logging.to_files: true
+logging.files:
+  path: /usr/share/filebeat/logs
+  name: filebeat
+  keepfiles: 7
+  permissions: 0644
+
+# Disable Kibana setup if sending to Logstash (Logstash typically handles templates/pipelines)
+setup.kibana:
+  enabled: false
+
+# Disable template loading if sending to Logstash
+setup.template:
+  enabled: false
+
+# Disable ILM setup if sending to Logstash
+setup.ilm:
+  enabled: false
