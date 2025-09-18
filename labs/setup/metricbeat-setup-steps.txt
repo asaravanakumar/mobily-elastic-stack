@@ -1,0 +1,46 @@
+#Mac Setup
+
+#STEP 1: Download Metricbeat
+https://www.elastic.co/downloads/beats/metricbeat
+
+#STEP 2: Navigate to metric beat installation directory
+
+#STEP 3a: Configure Metricbeat metricbeat.yml to enable Logstash output
+output.logstash:
+  hosts: ["localhost:5044"]
+
+OR
+
+#STEP 3b: Configure Metricbeat metricbeat.yml to enable Elasticsearch output
+output.elasticsearch:
+	hosts: ["localhost:9200"]
+  	protocol: "https"
+  	username: "elastic"
+  	password: "<generated-password>"
+  	ssl.verification_mode: "none"
+
+
+#STEP 4: Enable Metricbeat system module
+
+#Linux/Mac
+./metricbeat modules enable system
+
+#Windows (Navigate to metricbeat installation directory and run)
+metricbeat modules enable system
+
+#STEP 5: Enable Kibana Dashboard [Optional. It works with Elasticsearch integration - STEP 3b]
+
+#Linux/Mac
+./metricbeat setup -e
+
+#Windows (Navigate to metricbeat installation directory and run. May take few minutes. Wait till it executes)
+metricbeat setup -e
+
+#STEP 6: Start metricbeat. Ensure Elasticsearch and/or Logstash with metricbeat listener running.
+
+#Linux/Mac
+./metricbeat -e
+
+#Windows
+metricbeat -e
+

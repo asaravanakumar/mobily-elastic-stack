@@ -1,0 +1,36 @@
+
+
+#STEP 1: Pull the Logstash image
+docker pull docker.elastic.co/logstash/logstash:9.1.0
+
+#STEP 2: Navigate to mobily-elastic-stack/labs/logstash
+
+#STEP 3: Run Logstash with Simple Pipeline Configuration
+#Linux/Mac
+docker run --net elastic --rm -it -v ./config/logstash.yml:/usr/share/logstash/config/logstash.yml -v ./pipeline/logstash-simple.conf:/usr/share/logstash/pipeline/logstash-simple.conf docker.elastic.co/logstash/logstash:9.1.0
+
+#Windows (Run in Powershell)
+docker run --net elastic --rm -it -v $PWD/config/logstash.yml:/usr/share/logstash/config/logstash.yml -v $PWD/pipeline/logstash-simple.conf:/usr/share/logstash/pipeline/logstash-simple.conf docker.elastic.co/logstash/logstash:9.1.0
+
+
+#STEP 4: Run Logstash with Movies Pipeline Configuration
+#Linux/Mac
+docker run --net elastic --rm -it -v ./config/logstash.yml:/usr/share/logstash/config/logstash.yml -v ./pipeline/movies-csv-read.conf:/usr/share/logstash/pipeline/movies-csv-read.conf -v ./input/movies.csv:/usr/share/logstash/input/movies.csv docker.elastic.co/logstash/logstash:9.1.0
+
+#Windows (Run in Powershell)
+docker run --net elastic --rm -it -v $PWD/config/logstash.yml:/usr/share/logstash/config/logstash.yml -v $PWD/pipeline/movies-csv-read.conf:/usr/share/logstash/pipeline/movies-csv-read.conf -v $PWD/input/movies.csv:/usr/share/logstash/input/movies.csv docker.elastic.co/logstash/logstash:9.1.0
+
+#STEP 5: Run Logstash with Access Logs Pipeline Configuration
+#Linux/Mac
+docker run --net elastic --rm -it -v ./config/logstash.yml:/usr/share/logstash/config/logstash.yml -v ./pipeline/apache-access-log.conf:/usr/share/logstash/pipeline/apache-access-log.conf -v ./input/access_logs.log:/usr/share/logstash/input/access_logs.log docker.elastic.co/logstash/logstash:9.1.0
+
+#Windows (Run in Powershell)
+docker run --net elastic --rm -it -v $PWD/config/logstash.yml:/usr/share/logstash/config/logstash.yml -v $PWD/pipeline/apache-access-log.conf:/usr/share/logstash/pipeline/apache-access-log.conf -v $PWD/input/access_logs.log:/usr/share/logstash/input/access_logs.log docker.elastic.co/logstash/logstash:9.1.0
+
+
+#STEP 6: Run Logstash with MetricBeat Pipeline Configuration
+$Linux/Mac
+docker run --net elastic --rm -it -v ./config/logstash.yml:/usr/share/logstash/config/logstash.yml -v ./pipeline/logstash-metricbeat.conf:/usr/share/logstash/pipeline/logstash-metricbeat.conf docker.elastic.co/logstash/logstash:9.1.0
+
+#Windows (Run in Powershell)
+docker run --net elastic --rm -it -v $PWD/config/logstash.yml:/usr/share/logstash/config/logstash.yml -v $PWD/pipeline/logstash-metricbeat.conf:/usr/share/logstash/pipeline/logstash-metricbeat.conf docker.elastic.co/logstash/logstash:9.1.0
