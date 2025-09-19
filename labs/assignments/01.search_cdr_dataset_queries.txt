@@ -1,0 +1,487 @@
+# Assignment 1: Basic Queries
+## 1. Retrieve all completed outgoing calls
+GET cdr/_search
+{
+  "query": {
+    "bool": {
+      "must": [
+        { "term": { "call_type": "outgoing" } },
+        { "term": { "call_status": "completed" } }
+      ]
+    }
+  }
+}
+
+## 2. Find all calls with duration greater than 20 minutes (1200 sec)
+GET cdr/_search
+{
+  "query": {
+    "range": {
+      "call_duration_sec": { "gte": 1200 }
+    }
+  }
+}
+
+## 3. Get all calls where the caller is +1234567890
+GET cdr/_search
+{
+  "query": {
+    "term": { "caller": "+1234567890" }
+  }
+}
+
+## 4. Fetch all missed calls
+GET cdr/_search
+{
+  "query": {
+    "term": { "call_status": "missed" }
+  }
+}
+
+## 5. List all calls that happened on 2025-09-12
+GET cdr/_search
+{
+  "query": {
+    "range": {
+      "call_start": {
+        "gte": "2025-09-12T00:00:00Z",
+        "lte": "2025-09-12T23:59:59Z"
+      }
+    }
+  }
+}
+
+# Assignment 2: Aggregations
+## 1. Total call cost per caller
+GET cdr/_search
+{
+  "size": 0,
+  "aggs": {
+    "cost_per_caller": {
+      "terms": { "field": "caller" },
+      "aggs": {
+        "total_cost": { "sum": { "field": "call_cost" } }
+      }
+    }
+  }
+}
+
+## 2. Average call duration grouped by call type
+GET cdr/_search
+{
+  "size": 0,
+  "aggs": {
+    "avg_duration_by_type": {
+      "terms": { "field": "call_type" },
+      "aggs": {
+        "avg_duration": { "avg": { "field": "call_duration_sec" } }
+      }
+    }
+  }
+}
+
+## 3. Top 5 callers by total call cost
+GET cdr/_search
+{
+  "size": 0,
+  "aggs": {
+    "top_callers": {
+      "terms": { "field": "caller", "size": 5 },
+      "aggs": {
+        "total_cost": { "sum": { "field": "call_cost" } }
+      }
+    }
+  }
+}
+
+## 4. Distribution of calls per call status
+GET cdr/_search
+{
+  "size": 0,
+  "aggs": {
+    "status_distribution": {
+      "terms": { "field": "call_status" }
+    }
+  }
+}
+
+## 5. Maximum call duration per cell tower
+GET cdr/_search
+{
+  "size": 0,
+  "aggs": {
+    "max_duration_per_tower": {
+      "terms": { "field": "cell_tower_id" },
+      "aggs": {
+        "max_duration": { "max": { "field": "call_duration_sec" } }
+      }
+    }
+  }
+}
+
+# Assignment 3: Time-based Analysis
+## 1. Number of calls per day
+GET cdr/_search
+{
+  "size": 0,
+  "aggs": {
+    "calls_per_day": {
+      "date_histogram": {
+        "field": "call_start",
+        "calendar_interval": "day"
+      }
+    }
+  }
+}
+
+## 2. Total call duration for each hour of the day
+GET cdr/_search
+{
+  "size": 0,
+  "aggs": {
+    "calls_per_hour": {
+      "date_histogram": {
+        "field": "call_start",
+        "calendar_interval": "hour"
+      },
+      "aggs": {
+        "total_duration": { "sum": { "field": "call_duration_sec" } }
+      }
+    }
+  }
+}
+
+## 3. Busiest day (most calls)
+GET cdr/_search
+{
+  "size": 0,
+  "aggs": {
+    "busiest_day": {
+      "date_histogram": {
+        "field": "call_start",
+        "calendar_interval": "day"
+      }
+    }
+  }
+}
+
+## 4. Average call cost per day
+GET cdr/_search
+{
+  "size": 0,
+  "aggs": {
+    "avg_cost_per_day": {
+      "date_histogram": {
+        "field": "call_start",
+        "calendar_interval": "day"
+      },
+      "aggs": {
+        "avg_cost": { "avg": { "field": "call_cost" } }
+      }
+    }
+  }
+}
+
+## 5. Calls during working hours (09:00–18:00)
+GET cdr/_search
+{
+  "query": {
+    "bool": {
+      "filter": [
+        {
+          "script": {
+            "script": {
+              "source": "def h = doc['call_start'].value.getHour(); return (h >= 9 && h <= 18);"
+            }
+          }
+        }
+      ]
+    }
+  }
+}
+
+# Assignment 4: Geo Queries
+## 1. Calls within 5 km of (24.7136, 46.6753)
+GET cdr/_search
+{
+  "query": {
+    "geo_distance": {
+      "distance": "5km",
+      "caller_location": { "lat": 24.7136, "lon": 46.6753 }
+    }
+  }
+}
+
+## 2. Calls within 10 km of (24.8000, 46.7000) with status completed
+GET cdr/_search
+{
+  "query": {
+    "bool": {
+      "must": { "term": { "call_status": "completed" } },
+      "filter": {
+        "geo_distance": {
+          "distance": "10km",
+          "caller_location": { "lat": 24.8000, "lon": 46.7000 }
+        }
+      }
+    }
+  }
+}
+
+## 3. Completed calls grouped by cell tower with average distance from (24.7136, 46.6753)
+GET cdr/_search
+{
+  "size": 0,
+  "query": {
+    "term": { "call_status": "completed" }
+  },
+  "aggs": {
+    "by_tower": {
+      "terms": { "field": "cell_tower_id" },
+      "aggs": {
+        "avg_distance": {
+          "geo_distance": {
+            "field": "caller_location",
+            "origin": { "lat": 24.7136, "lon": 46.6753 },
+            "unit": "km",
+            "ranges": [ { "from": 0, "to": 5 }, { "from": 5, "to": 10 }, { "from": 10 } ]
+          }
+        }
+      }
+    }
+  }
+}
+
+## 4. Identify all callers who made calls from at least two different geo-locations
+GET cdr/_search
+{
+  "size": 0,
+  "aggs": {
+    "callers": {
+      "terms": { "field": "caller" },
+      "aggs": {
+        "unique_locations": {
+          "cardinality": { "field": "caller_location" }
+        },
+        "min_two_locations": {
+          "bucket_selector": {
+            "buckets_path": { "loc_count": "unique_locations" },
+            "script": "params.loc_count >= 2"
+          }
+        }
+      }
+    }
+  }
+}
+
+## 5. Find the top 3 cell towers by total call cost
+GET cdr/_search
+{
+  "size": 0,
+  "aggs": {
+    "top_cell_towers": {
+      "terms": { "field": "cell_tower_id", "size": 3, "order": { "total_cost": "desc" } },
+      "aggs": {
+        "total_cost": { "sum": { "field": "call_cost" } }
+      }
+    }
+  }
+}
+
+
+# Assignment 5: Complex Queries
+## 1. Business calls (notes contains “business”) longer than 10 minutes
+GET cdr/_search
+{
+  "query": {
+    "bool": {
+      "must": [
+        { "match": { "notes": "business" } },
+        { "range": { "call_duration_sec": { "gte": 600 } } }
+      ]
+    }
+  }
+}
+
+## 2. Dropped calls longer than 5 minutes
+GET cdr/_search
+{
+  "query": {
+    "bool": {
+      "must": [
+        { "term": { "call_status": "dropped" } },
+        { "range": { "call_duration_sec": { "gte": 300 } } }
+      ]
+    }
+  }
+}
+
+## 3. Callers with both completed and missed calls
+GET cdr/_search
+{
+  "size": 0,
+  "aggs": {
+    "callers": {
+      "terms": { "field": "caller" },
+      "aggs": {
+        "statuses": { "terms": { "field": "call_status" } },
+        "status_count": {
+          "bucket_selector": {
+            "buckets_path": { "count": "statuses._bucket_count" },
+            "script": "params.count >= 2"
+          }
+        }
+      }
+    }
+  }
+}
+
+## 4. Total call cost for each caller where at least one call exceeded 30 minutes
+GET cdr/_search
+{
+  "size": 0,
+  "aggs": {
+    "callers": {
+      "terms": { "field": "caller" },
+      "aggs": {
+        "long_calls": {
+          "filter": { "range": { "call_duration_sec": { "gte": 1800 } } }
+        },
+        "total_cost": { "sum": { "field": "call_cost" } },
+        "has_long_call": {
+          "bucket_selector": {
+            "buckets_path": { "long_call_count": "long_calls._count" },
+            "script": "params.long_call_count > 0"
+          }
+        }
+      }
+    }
+  }
+}
+
+## 5. Callers who contacted at least 3 unique callees
+GET cdr/_search
+{
+  "size": 0,
+  "aggs": {
+    "callers": {
+      "terms": { "field": "caller" },
+      "aggs": {
+        "unique_callees": { "cardinality": { "field": "callee" } },
+        "min_three": {
+          "bucket_selector": {
+            "buckets_path": { "callees": "unique_callees" },
+            "script": "params.callees >= 3"
+          }
+        }
+      }
+    }
+  }
+}
+
+# Assignment 6: Advanced Scenarios
+## 1. Fraud detection: callers with >5 missed calls in one day
+GET cdr/_search
+{
+  "size": 0,
+  "query": { "term": { "call_status": "missed" } },
+  "aggs": {
+    "callers": {
+      "terms": { "field": "caller" },
+      "aggs": {
+        "per_day": {
+          "date_histogram": {
+            "field": "call_start",
+            "calendar_interval": "day"
+          },
+          "aggs": {
+            "missed_count": { "value_count": { "field": "call_id" } },
+            "more_than_5": {
+              "bucket_selector": {
+                "buckets_path": { "count": "missed_count" },
+                "script": "params.count > 5"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+## 2. Callers who made calls across ≥3 different cell towers
+GET cdr/_search
+{
+  "size": 0,
+  "aggs": {
+    "callers": {
+      "terms": { "field": "caller" },
+      "aggs": {
+        "unique_towers": { "cardinality": { "field": "cell_tower_id" } },
+        "min_three": {
+          "bucket_selector": {
+            "buckets_path": { "towers": "unique_towers" },
+            "script": "params.towers >= 3"
+          }
+        }
+      }
+    }
+  }
+}
+
+## 3. Top 3 most expensive calls with their towers
+GET cdr/_search
+{
+  "size": 3,
+  "sort": [{ "call_cost": "desc" }],
+  "_source": ["call_id", "caller", "callee", "cell_tower_id", "call_cost"]
+}
+
+## 4. Longest business call per day
+GET cdr/_search
+{
+  "size": 0,
+  "query": { "match": { "notes": "business" } },
+  "aggs": {
+    "per_day": {
+      "date_histogram": {
+        "field": "call_start",
+        "calendar_interval": "day"
+      },
+      "aggs": {
+        "longest_call": {
+          "top_hits": {
+            "sort": [{ "call_duration_sec": "desc" }],
+            "_source": ["call_id", "caller", "call_duration_sec", "call_start"],
+            "size": 1
+          }
+        }
+      }
+    }
+  }
+}
+
+## 5. Callers who made at least one call every day
+GET cdr/_search
+{
+  "size": 0,
+  "aggs": {
+    "callers": {
+      "terms": { "field": "caller" },
+      "aggs": {
+        "days_active": {
+          "date_histogram": {
+            "field": "call_start",
+            "calendar_interval": "day"
+          }
+        },
+        "min_days": {
+          "bucket_selector": {
+            "buckets_path": { "days": "days_active._bucket_count" },
+            "script": "params.days >= 1"
+          }
+        }
+      }
+    }
+  }
+}
