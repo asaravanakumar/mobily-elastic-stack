@@ -1,0 +1,94 @@
+## URI Search
+
+# Search all documents
+curl -k -u elastic:$ELASTIC_PASSWORD -XGET https://127.0.0.1:9200/_search?pretty
+
+# Search all documents on given index
+curl -k -u elastic:$ELASTIC_PASSWORD -XGET https://127.0.0.1:9200/shakespeare/_search?pretty
+curl -k -u elastic:$ELASTIC_PASSWORD -XGET https://127.0.0.1:9200/movies/_search?pretty
+
+
+# Search documents with filter condition
+
+curl -k -u elastic:$ELASTIC_PASSWORD -XGET "https://127.0.0.1:9200/movies/_search?q=star&pretty"
+curl -k -u elastic:$ELASTIC_PASSWORD -XGET "https://127.0.0.1:9200/movies/_search?q=title:star&pretty"
+curl -k -u elastic:$ELASTIC_PASSWORD -XGET "https://127.0.0.1:9200/movies/_search?q=+year:2015+title:star&pretty"
+
+
+## Query DSL
+
+# Match Query
+curl -k -u elastic:$ELASTIC_PASSWORD -H "Content-Type: application/json" -XGET 'https://127.0.0.1:9200/movies/_search?pretty' -d '
+{
+	"query" : {
+		"match" : {
+			"title" : "trek"
+		}
+	}
+}' 
+
+
+# Boolean Query with a Filter
+curl -k -u elastic:$ELASTIC_PASSWORD -H "Content-Type: application/json" -XGET 'https://127.0.0.1:9200/movies/_search?pretty' -d '
+{
+	"query" : {
+		"bool": {
+			"must" : {"term": {"title" : "trek"}},
+			"filter" : {"range": {"year": {"gte": "2015"}}}
+		}
+	}
+}' 
+
+curl -k -u elastic:$ELASTIC_PASSWORD -H "Content-Type: application/json" -XGET 'https://127.0.0.1:9200/movies/_search?pretty' -d '
+{
+	"query" : {
+		"bool": {
+			"must" : {"match": {"genre" : "Sci-Fi"}},
+			"must_not" : {"match": {"title": "trek"}}
+			"filter" : {"range": {"year": {"gte": "2015"}}}
+		}
+	}
+}' 
+
+# Types of Filters - Term, Terms, Range, Exists, Missing, Bool
+# Types of Queries - Match_all, Match, Multi_match, Bool
+
+
+## Phrase Search			
+curl -k -u elastic:$ELASTIC_PASSWORD -H "Content-Type: application/json" -XGET 'https://127.0.0.1:9200/movies/_search?pretty' -d '
+{
+	"query" : {
+		"match_phrase" : {
+			"title" : "star wars"
+		}
+	}
+}' 
+
+curl -k -u elastic:$ELASTIC_PASSWORD -H "Content-Type: application/json" -XGET 'https://127.0.0.1:9200/movies/_search?pretty' -d '
+{
+	"query" : {
+		"match_phrase" : {
+			"title" : {"query": "star beyond", "slop": 1}
+		}
+	}
+}' 
+
+ 
+## Pagination
+
+curl -k -u elastic:$ELASTIC_PASSWORD -XGET "https://127.0.0.1:9200/movies/_search?size=2&from=2&pretty"
+
+curl -k -u elastic:$ELASTIC_PASSWORD -H "Content-Type: application/json" -XGET 'https://127.0.0.1:9200/movies/_search?pretty' -d '
+{
+	"from": 2,
+	"size": 2,
+	"query" : {
+		"match" : {
+			"genre" : "Sci-Fi"
+		}
+	}
+}' 
+
+## Sorting
+
+curl -k -u elastic:$ELASTIC_PASSWORD -XGET "https://127.0.0.1:9200/movies/_search?sort=year&pretty"

@@ -28,7 +28,7 @@ output.elasticsearch:
 #Windows (Navigate to metricbeat installation directory and run)
 metricbeat modules enable system
 
-#STEP 5: Enable Kibana Dashboard [Optional. It works with Elasticsearch integration - STEP 3b]
+#STEP 5: Enable Kibana Dashboard [Optional. It works with Elasticsearch integration - STEP 3b]. Recommended before starting Metricbeat.
 
 #Linux/Mac
 ./metricbeat setup -e
@@ -44,3 +44,13 @@ metricbeat setup -e
 #Windows
 metricbeat -e
 
+#STEP 6a: If any permission issues, run commands with sudo/admin access
+
+#Linux/Mac
+sudo ./metricbeat -e
+
+#STEP 6a: If any file ownership permission issues, run commands below commands and Start
+
+sudo chown root metricbeat.yml
+sudo chown root /Users/saravana/Programs/metricbeat-9.1.0/modules.d/*.yml
+sudo ./metricbeat -e

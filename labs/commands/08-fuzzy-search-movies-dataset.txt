@@ -1,0 +1,122 @@
+
+
+
+## Fuzzy Search
+curl -k -u elastic:$ELASTIC_PASSWORD -H "Content-Type: application/json" -XGET 'https://127.0.0.1:9200/movies/_search?pretty' -d '
+{
+	"query" : {
+		"fuzzy" : {
+			"title" : {"value": "interstellar", "fuzziness": 2}
+		}
+	}
+}' 
+
+
+## Prefix Search
+curl -k -u elastic:$ELASTIC_PASSWORD -H "Content-Type: application/json" -XGET 'https://127.0.0.1:9200/movies/_search?pretty' -d '
+{
+	"query" : {
+		"prefix" : {
+			"title" : "sta"
+		}
+	}
+}' 
+
+# Wildcard Search
+
+curl -k -u elastic:$ELASTIC_PASSWORD -H "Content-Type: application/json" -XGET 'https://127.0.0.1:9200/movies/_search?pretty' -d '
+{
+	"query" : {
+		"wildcard" : {
+			"title" : "star"
+		}
+	}
+}' 
+
+
+# Query-Time Search
+
+curl -k -u elastic:$ELASTIC_PASSWORD -H "Content-Type: application/json" -XGET 'https://127.0.0.1:9200/movies/_search?pretty' -d '
+{
+	"query" : {
+		"match_phrase_prefix" : {
+			"title" : {"query": "star", "slop": 10}
+		}
+	}
+}' 
+
+## N-Gram Search
+
+#Delete movies index
+curl -k -u elastic:$ELASTIC_PASSWORD -XDELETE https://127.0.0.1:9200/movies?pretty 
+
+
+#Create index with custom autocomplete analyser
+curl -k -u elastic:$ELASTIC_PASSWORD -H "Content-Type: application/json" -XPUT https://127.0.0.1:9200/movies?pretty -d '
+{
+	"settings": {
+		"analysis": {
+			"filter": {
+				"autocomplete_filter": {
+					"type": "edge_ngram",
+					"min_gram": 3,
+					"max_gram": 20
+				}
+			},
+			"analyzer": {
+				"autocomplete": {
+					"type": "custom",
+					"tokenizer": "standard",
+					"filter": ["lowercase", "autocomplete_filter"]
+	
+				}
+			}
+		}
+
+	}
+}'
+
+#Analyze the index
+curl -k -u elastic:$ELASTIC_PASSWORD -H "Content-Type: application/json" -XGET https://127.0.0.1:9200/movies/_analyze?pretty -d '
+{
+	"analyzer": "autocomplete",
+	"text": "sta"
+}'
+
+#Create mapping with custom analyser
+curl -k -u elastic:$ELASTIC_PASSWORD -H "Content-Type: application/json" -XPUT https://127.0.0.1:9200/movies/_mapping?pretty -d '
+{
+  "properties": {
+    "title": {
+              "type": "text",
+              "analyzer": "autocomplete"
+            }
+    }
+}'
+
+
+# Index data
+curl -k -u elastic:$ELASTIC_PASSWORD -XPUT -H "Content-Type: application/json" 'https://127.0.0.1:9200/movies/_bulk?pretty' --data-binary @movies.json
+
+# Search the indexed data
+curl -k -u elastic:$ELASTIC_PASSWORD -H "Content-Type: application/json" -XGET 'https://127.0.0.1:9200/movies/_search?pretty' -d '
+{
+	"query" : {
+		"match" : {
+			"title" : {
+				"query": "sta"
+		}
+	}
+}' 
+
+# Search the indexed data with analyser
+curl -k -u elastic:$ELASTIC_PASSWORD -H "Content-Type: application/json" -XGET 'https://127.0.0.1:9200/movies/_search?pretty' -d '
+{
+	"query" : {
+		"match" : {
+			"title" : {
+				"query": "sta",
+				"analyzer": "standard"
+		}
+	}
+}' 
