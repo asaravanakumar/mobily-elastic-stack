@@ -1,0 +1,39 @@
+
+#Navigate to mobily-elastic-stack/main/labs/dataset/access-log
+
+#Configure logstash pipeline
+
+Create /logstash-x.x/config/apache-access-log.conf
+
+input {
+        file {
+                path => "/path/access_log"
+                start_position => "beginning"
+        }
+ }
+
+filter {
+         grok {
+                match => { "message" => "%{COMBINEDAPACHELOG}" }
+        }
+        date {
+                match => [ "timestamp" , "dd/MMM/yyyy:HH:mm:ss Z" ]
+        }
+}
+
+output {
+  	elasticsearch {
+    		hosts => ["https://localhost:9200"]
+    		index => "access-logs1"
+    		user => "elastic"
+    		password => "<generated-password>"
+    		ssl_certificate_verification => false
+  	}
+        stdout {
+                codec => rubydebug
+        }
+}
+
+#Run Logstash
+bin/logstash -f config/apache-access-log.conf
+

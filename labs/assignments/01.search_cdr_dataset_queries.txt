@@ -86,9 +86,15 @@ GET cdr/_search
   "size": 0,
   "aggs": {
     "top_callers": {
-      "terms": { "field": "caller", "size": 5 },
+      "terms": { 
+        "field": "caller", 
+        "size": 5,
+        "order": { "total_cost": "desc" } 
+      },
       "aggs": {
-        "total_cost": { "sum": { "field": "call_cost" } }
+        "total_cost": { 
+          "sum": { "field": "call_cost" } 
+        }
       }
     }
   }
@@ -173,10 +179,13 @@ GET cdr/_search
     "avg_cost_per_day": {
       "date_histogram": {
         "field": "call_start",
-        "calendar_interval": "day"
+        "calendar_interval": "day",
+        "order": { "avg_cost": "asc" } 
       },
       "aggs": {
-        "avg_cost": { "avg": { "field": "call_cost" } }
+        "avg_cost": { 
+          "avg": { "field": "call_cost" } 
+        }
       }
     }
   }

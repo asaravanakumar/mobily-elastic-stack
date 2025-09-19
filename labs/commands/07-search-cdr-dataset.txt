@@ -1,0 +1,382 @@
+###################################
+#GitBash/Linux/Mac
+###################################
+
+# Navigate to mobily-elastic-stack/labs/dataset/telco-dataset
+
+#Set Password
+export ELASTIC_PASSWORD=<generated_password>
+
+# Delete the 'cdr' index (if exists)
+curl -k -u elastic:$ELASTIC_PASSWORD -XDELETE "https://localhost:9200/cdr?pretty"
+
+# Create the 'cdr' index using mapping and analzyer from a JSON file
+curl -k -u elastic:$ELASTIC_PASSWORD -H "Content-Type: application/json" -XPUT 'https://127.0.0.1:9200/cdr' --data-binary @cdr-analyzer.json
+
+# Bulk insert CDR documents from a JSON file
+curl -k -u elastic:$ELASTIC_PASSWORD -H "Content-Type: application/json" -XPUT 'https://127.0.0.1:9200/cdr/_bulk' --data-binary @cdr-dataset-bulk.json
+
+# Get the count of documents in the 'cdr' index (again)
+curl -k -u elastic:$ELASTIC_PASSWORD -XGET "https://localhost:9200/cdr/_count?pretty"
+
+## URI Search
+
+# Search all documents
+curl -k -u elastic:$ELASTIC_PASSWORD -XGET https://127.0.0.1:9200/_search?pretty
+
+# Search all documents on given index
+curl -k -u elastic:$ELASTIC_PASSWORD -XGET https://127.0.0.1:9200/cdr/_search?pretty
+
+# Search documents with filter condition
+
+curl -k -u elastic:$ELASTIC_PASSWORD -XGET "https://127.0.0.1:9200/cdr/_search?q=call&pretty"
+curl -k -u elastic:$ELASTIC_PASSWORD -XGET "https://127.0.0.1:9200/cdr/_search?q=notes:business&pretty"
+
+## Query DSL
+
+# Match Query: Find CDRs where notes contain "call"
+curl -k -u elastic:$ELASTIC_PASSWORD -H "Content-Type: application/json" -XGET 'https://127.0.0.1:9200/cdr/_search?pretty' -d '
+{
+  "query" : {
+    "match" : {
+      "notes" : "call"
+    }
+  }
+}' 
+
+# Boolean Query with a Filter: Find CDRs where notes contain "business" and call_cost >= 3.0
+curl -k -u elastic:$ELASTIC_PASSWORD -H "Content-Type: application/json" -XGET 'https://127.0.0.1:9200/cdr/_search?pretty' -d '
+{
+  "query" : {
+    "bool": {
+      "must" : {"match": {"notes" : "business"}},
+      "filter" : {"range": {"call_cost": {"gte": 3.0}}}
+    }
+  }
+}' 
+
+# Boolean Query: Find CDRs where call_type is "outgoing", but not "missed", and call_duration_sec >= 600
+curl -k -u elastic:$ELASTIC_PASSWORD -H "Content-Type: application/json" -XGET 'https://127.0.0.1:9200/cdr/_search?pretty' -d '
+{
+  "query" : {
+    "bool": {
+      "must" : {"term": {"call_type" : "outgoing"}},
+      "must_not" : {"term": {"call_status": "missed"}},
+      "filter" : {"range": {"call_duration_sec": {"gte": 600}}}
+    }
+  }
+}' 
+
+# Types of Filters - Term, Terms, Range, Exists, Missing, Bool
+# Types of Queries - Match_all, Match, Multi_match, Bool
+
+## Phrase Search: Find CDRs where notes contain the exact phrase "Business Call"
+curl -k -u elastic:$ELASTIC_PASSWORD -H "Content-Type: application/json" -XGET 'https://127.0.0.1:9200/cdr/_search?pretty' -d '
+{
+  "query" : {
+    "match_phrase" : {
+      "notes" : "Business Call"
+    }
+  }
+}' 
+
+## Phrase Search with Slop: Find CDRs where notes contain "international important" within 1 word apart
+curl -k -u elastic:$ELASTIC_PASSWORD -H "Content-Type: application/json" -XGET 'https://127.0.0.1:9200/cdr/_search?pretty' -d '
+{
+  "query" : {
+    "match_phrase" : {
+      "notes" : {"query": "international important", "slop": 1}
+    }
+  }
+}' 
+
+## Pagination: Get 2 CDRs starting from the 3rd document
+curl -k -u elastic:$ELASTIC_PASSWORD -XGET "https://127.0.0.1:9200/cdr/_search?size=2&from=2&pretty"
+
+curl -k -u elastic:$ELASTIC_PASSWORD -H "Content-Type: application/json" -XGET 'https://127.0.0.1:9200/cdr/_search?pretty' -d '
+{
+  "from": 2,
+  "size": 2,
+  "query" : {
+    "match" : {
+      "call_type" : "outgoing"
+    }
+  }
+}' 
+
+## Sorting: Sort CDRs by call_start date
+curl -k -u elastic:$ELASTIC_PASSWORD -XGET "https://127.0.0.1:9200/cdr/_search?sort=call_start:asc&pretty"
+
+
+# Search for documents where the 'notes' field contains "Business Call"
+curl -k -u elastic:$ELASTIC_PASSWORD -XGET "https://localhost:9200/cdr/_search?pretty" -H "Content-Type: application/json" -d '{
+  "query": {
+    "match": {
+      "notes": "Business Call"
+    }
+  }
+}'
+
+# Search for documents where any field contains the word "call"
+curl -k -u elastic:$ELASTIC_PASSWORD -XGET "https://localhost:9200/cdr/_search?pretty" -H "Content-Type: application/json" -d '{
+  "query": {
+    "query_string": {
+      "query": "call"
+    }
+  }
+}'
+
+# Search for documents within 5km of a specific geo location
+curl -k -u elastic:$ELASTIC_PASSWORD -XGET "https://localhost:9200/cdr/_search?pretty" -H "Content-Type: application/json" -d '{
+  "query": {
+    "geo_distance": {
+      "distance": "5km",
+      "caller_location": {
+        "lat": 24.7136,
+        "lon": 46.6753
+      }
+    }
+  }
+}'
+
+# Search for documents with 'call_start' in a specific date range
+curl -k -u elastic:$ELASTIC_PASSWORD -XGET "https://localhost:9200/cdr/_search?pretty" -H "Content-Type: application/json" -d '{
+  "query": {
+    "range": {
+      "call_start": {
+        "gte": "2025-09-10T09:00:00Z",
+        "lte": "2025-09-11T10:00:00Z"
+      }
+    }
+  }
+}'
+
+## Fuzzy Search: Find CDRs where the 'notes' field is similar to "business" (with fuzziness 2)
+curl -k -u elastic:$ELASTIC_PASSWORD -H "Content-Type: application/json" -XGET 'https://127.0.0.1:9200/cdr/_search?pretty' -d '
+{
+  "query" : {
+    "fuzzy" : {
+      "notes" : {"value": "business", "fuzziness": 2}
+    }
+  }
+}' 
+
+## Prefix Search: Find CDRs where the 'notes' field starts with "call"
+curl -k -u elastic:$ELASTIC_PASSWORD -H "Content-Type: application/json" -XGET 'https://127.0.0.1:9200/cdr/_search?pretty' -d '
+{
+  "query" : {
+    "prefix" : {
+      "notes" : "call"
+    }
+  }
+}' 
+
+# Wildcard Search: Find CDRs where the 'notes' field matches the pattern "bus*"
+curl -k -u elastic:$ELASTIC_PASSWORD -H "Content-Type: application/json" -XGET 'https://127.0.0.1:9200/cdr/_search?pretty' -d '
+{
+  "query" : {
+    "wildcard" : {
+      "notes" : "bus*"
+    }
+  }
+}' 
+
+# Query-Time Search: Find CDRs where the 'notes' field contains a phrase starting with "business"
+# Query-Time Search gives you flexibility to define how you want to search your data at the moment you run the query, enabling powerful and dynamic search capabilities.
+curl -k -u elastic:$ELASTIC_PASSWORD -H "Content-Type: application/json" -XGET "https://127.0.0.1:9200/cdr/_search?pretty" -d '
+{
+  "query" : {
+    "match_phrase_prefix" : {
+      "notes" : {"query": "business", "slop": 10}
+    }
+  }
+}'
+
+
+# Delete the 'cdr' index (final cleanup)
+curl -k -u elastic:$ELASTIC_PASSWORD -H "Content-Type: application/json" -XDELETE 'https://127.0.0.1:9200/cdr?pretty'
+
+###################################
+#Windows
+###################################
+
+# Navigate to mobily-elastic-stack/labs/dataset/telco-dataset
+
+#Set Password
+set ELASTIC_PASSWORD=<generated_password>
+
+# Delete 'cdr' index (if exists)
+curl -k -u elastic:$ELASTIC_PASSWORD -XDELETE "https://localhost:9200/cdr?pretty"
+
+# Create the 'cdr' index using mapping and analyzer from a JSON file
+curl -k -u elastic:%ELASTIC_PASSWORD% -H "Content-Type: application/json" -XPUT "https://127.0.0.1:9200/cdr" --data-binary @cdr-analyzer.json
+
+# Bulk insert CDR documents from a JSON file
+curl -k -u elastic:%ELASTIC_PASSWORD% -H "Content-Type: application/json" -XPUT "https://127.0.0.1:9200/cdr/_bulk" --data-binary @cdr-dataset-bulk.json
+
+# Get the count of documents in the 'cdr' index (again)
+curl -k -u elastic:%ELASTIC_PASSWORD% -XGET "https://localhost:9200/cdr/_count?pretty"
+
+## URI Search
+
+# Search all documents
+curl -k -u elastic:%ELASTIC_PASSWORD% -XGET "https://127.0.0.1:9200/_search?pretty"
+
+# Search all documents on given index
+curl -k -u elastic:%ELASTIC_PASSWORD% -XGET "https://127.0.0.1:9200/cdr/_search?pretty"
+
+# Search documents with filter condition
+
+curl -k -u elastic:%ELASTIC_PASSWORD% -XGET "https://127.0.0.1:9200/cdr/_search?q=call&pretty"
+curl -k -u elastic:%ELASTIC_PASSWORD% -XGET "https://127.0.0.1:9200/cdr/_search?q=notes:business&pretty"
+
+## Query DSL
+
+# Match Query: Find CDRs where notes contain "call"
+curl -k -u elastic:%ELASTIC_PASSWORD% -H "Content-Type: application/json" -XGET "https://127.0.0.1:9200/cdr/_search?pretty" -d '{
+  "query": {
+    "match": {
+      "notes": "call"
+    }
+  }
+}'
+
+# Boolean Query with a Filter: Find CDRs where notes contain "business" and call_cost >= 3.0
+curl -k -u elastic:%ELASTIC_PASSWORD% -H "Content-Type: application/json" -XGET "https://127.0.0.1:9200/cdr/_search?pretty" -d '{
+  "query": {
+    "bool": {
+      "must": {"match": {"notes": "business"}},
+      "filter": {"range": {"call_cost": {"gte": 3.0}}}
+    }
+  }
+}'
+
+# Boolean Query: Find CDRs where call_type is "outgoing", but not "missed", and call_duration_sec >= 600
+curl -k -u elastic:%ELASTIC_PASSWORD% -H "Content-Type: application/json" -XGET "https://127.0.0.1:9200/cdr/_search?pretty" -d '{
+  "query": {
+    "bool": {
+      "must": {"term": {"call_type": "outgoing"}},
+      "must_not": {"term": {"call_status": "missed"}},
+      "filter": {"range": {"call_duration_sec": {"gte": 600}}}
+    }
+  }
+}'
+
+# Types of Filters - Term, Terms, Range, Exists, Missing, Bool
+# Types of Queries - Match_all, Match, Multi_match, Bool
+
+## Phrase Search: Find CDRs where notes contain the exact phrase "Business Call"
+curl -k -u elastic:%ELASTIC_PASSWORD% -H "Content-Type: application/json" -XGET "https://127.0.0.1:9200/cdr/_search?pretty" -d '{
+  "query": {
+    "match_phrase": {
+      "notes": "Business Call"
+    }
+  }
+}'
+
+## Phrase Search with Slop: Find CDRs where notes contain "international important" within 1 word apart
+curl -k -u elastic:%ELASTIC_PASSWORD% -H "Content-Type: application/json" -XGET "https://127.0.0.1:9200/cdr/_search?pretty" -d '{
+  "query": {
+    "match_phrase": {
+      "notes": {"query": "international important", "slop": 1}
+    }
+  }
+}'
+
+## Pagination: Get 2 CDRs starting from the 3rd document
+curl -k -u elastic:%ELASTIC_PASSWORD% -XGET "https://127.0.0.1:9200/cdr/_search?size=2&from=2&pretty"
+
+curl -k -u elastic:%ELASTIC_PASSWORD% -H "Content-Type: application/json" -XGET "https://127.0.0.1:9200/cdr/_search?pretty" -d '{
+  "from": 2,
+  "size": 2,
+  "query": {
+    "match": {
+      "call_type": "outgoing"
+    }
+  }
+}'
+
+## Sorting: Sort CDRs by call_start date
+curl -k -u elastic:%ELASTIC_PASSWORD% -XGET "https://127.0.0.1:9200/cdr/_search?sort=call_start:asc&pretty"
+
+# Search for documents where the 'notes' field contains "Business Call"
+curl -k -u elastic:%ELASTIC_PASSWORD% -XGET "https://localhost:9200/cdr/_search?pretty" -H "Content-Type: application/json" -d '{
+  "query": {
+    "match": {
+      "notes": "Business Call"
+    }
+  }
+}'
+
+# Search for documents where any field contains the word "call"
+curl -k -u elastic:%ELASTIC_PASSWORD% -XGET "https://localhost:9200/cdr/_search?pretty" -H "Content-Type: application/json" -d '{
+  "query": {
+    "query_string": {
+      "query": "call"
+    }
+  }
+}'
+
+# Search for documents within 5km of a specific geo location
+curl -k -u elastic:%ELASTIC_PASSWORD% -XGET "https://localhost:9200/cdr/_search?pretty" -H "Content-Type: application/json" -d '{
+  "query": {
+    "geo_distance": {
+      "distance": "5km",
+      "caller_location": {
+        "lat": 24.7136,
+        "lon": 46.6753
+      }
+    }
+  }
+}'
+
+# Search for documents with 'call_start' in a specific date range
+curl -k -u elastic:%ELASTIC_PASSWORD% -XGET "https://localhost:9200/cdr/_search?pretty" -H "Content-Type: application/json" -d '{
+  "query": {
+    "range": {
+      "call_start": {
+        "gte": "2025-09-10T09:00:00Z",
+        "lte": "2025-09-11T10:00:00Z"
+      }
+    }
+  }
+}'
+
+## Fuzzy Search: Find CDRs where the 'notes' field is similar to "business" (with fuzziness 2)
+curl -k -u elastic:%ELASTIC_PASSWORD% -H "Content-Type: application/json" -XGET "https://127.0.0.1:9200/cdr/_search?pretty" -d '{
+  "query": {
+    "fuzzy": {
+      "notes": {"value": "business", "fuzziness": 2}
+    }
+  }
+}'
+
+## Prefix Search: Find CDRs where the 'notes' field starts with "call"
+curl -k -u elastic:%ELASTIC_PASSWORD% -H "Content-Type: application/json" -XGET "https://127.0.0.1:9200/cdr/_search?pretty" -d '{
+  "query": {
+    "prefix": {
+      "notes": "call"
+    }
+  }
+}'
+
+# Wildcard Search: Find CDRs where the 'notes' field matches the pattern "bus*"
+curl -k -u elastic:%ELASTIC_PASSWORD% -H "Content-Type: application/json" -XGET "https://127.0.0.1:9200/cdr/_search?pretty" -d '{
+  "query": {
+    "wildcard": {
+      "notes": "bus*"
+    }
+  }
+}'
+
+# Query-Time Search: Find CDRs where the 'notes' field contains a phrase starting with "business"
+curl -k -u elastic:%ELASTIC_PASSWORD% -H "Content-Type: application/json" -XGET "https://127.0.0.1:9200/cdr/_search?pretty" -d '{
+  "query": {
+    "match_phrase_prefix": {
+      "notes": {"query": "business", "slop": 10}
+    }
+  }
+}'
+
+# Delete the 'cdr' index (final cleanup)
+curl -k -u elastic:%ELASTIC_PASSWORD% -H "Content-Type: application/json" -XDELETE "https://127.0.0.1:9200/cdr?pretty"

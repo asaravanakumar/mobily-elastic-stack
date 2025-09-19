@@ -1,4 +1,6 @@
+###################################
 #GitBash/Linux/Mac
+###################################
 
 # Navigate to mobily-elastic-stack/labs/dataset/movie-dataset
 
@@ -72,4 +74,72 @@ curl -k -u elastic:$ELASTIC_PASSWORD -XGET -H "Content-Type: application/json" '
 }'
 
 
- 
+###################################
+#Windows
+###################################
+
+# Navigate to mobily-elastic-stack/labs/dataset/movie-dataset
+
+#Set Password
+set ELASTIC_PASSWORD=<generated_password>
+
+#Analyser example
+
+# View current mapping
+curl -k -u elastic:%ELASTIC_PASSWORD% -XGET 'https://127.0.0.1:9200/movies/_mapping'
+
+# Search w/o analyser
+curl -k -u elastic:%ELASTIC_PASSWORD% -H "Content-Type: application/json" -XGET 'https://127.0.0.1:9200/movies/_search?pretty' -d '{
+	"query" : {
+		"match_phrase" : {
+			"title" : "Star Trek"
+		}
+	}
+}'
+
+curl -k -u elastic:%ELASTIC_PASSWORD% -H "Content-Type: application/json" -XGET 'https://127.0.0.1:9200/movies/_search?pretty' -d '{
+	"query" : {
+		"match_phrase" : {
+			"genre" : "sci"
+		}
+	}
+}'
+
+# Delete the movie index
+curl -k -u elastic:%ELASTIC_PASSWORD% -XDELETE 'https://127.0.0.1:9200/movies?pretty'
+
+# Create movie index with analyser mapping
+curl -k -u elastic:%ELASTIC_PASSWORD% -H "Content-Type: application/json" -XPUT https://127.0.0.1:9200/movies -d '{
+	"mappings": {
+		"properties": {
+			"id": {
+				"type": "integer"
+			},
+			"year": {
+				"type": "date"
+			},
+			"genre": {
+				"type": "keyword"
+			},
+			"title": {
+				"type": "text", "analyzer": "english"
+			}
+		}
+	}
+}'
+
+# View Mapping
+curl -k -u elastic:%ELASTIC_PASSWORD% -XGET https://127.0.0.1:9200/movies/_mapping
+
+# Bulk index movies data
+curl -k -u elastic:%ELASTIC_PASSWORD% -XPUT -H "Content-Type: application/json" 'https://127.0.0.1:9200/movies/_bulk?pretty' --data-binary @movies.json
+
+# Search with analyser
+curl -k -u elastic:%ELASTIC_PASSWORD% -XGET -H "Content-Type: application/json" 'https://127.0.0.1:9200/movies/_search?pretty' -d '{
+	"query" : {
+		"match" : {
+			"title" : "star war"
+		}
+	}
+}'
+

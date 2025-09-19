@@ -9,9 +9,9 @@ pipeline.batch.size: 125
 pipeline.batch.delay: 50
 
 xpack.monitoring.enabled: true
-xpack.monitoring.elasticsearch.hosts: [ "https://es01:9200" ]
+xpack.monitoring.elasticsearch.hosts: ["https://es01:9200"]
 
 xpack.monitoring.elasticsearch.username: "elastic" # Or create a dedicated logstash_internal user
-xpack.monitoring.elasticsearch.password: "${ELASTICSEARCH_PASSWORD}" 
+xpack.monitoring.elasticsearch.password: "${ELASTICSEARCH_PASSWORD}"
 xpack.monitoring.elasticsearch.ssl.certificate_authority: "/usr/share/logstash/config/certs/ca/ca.crt"
 xpack.monitoring.elasticsearch.ssl.verification_mode: "certificate"

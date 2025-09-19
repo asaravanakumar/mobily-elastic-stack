@@ -1,4 +1,6 @@
+###################################
 #GitBash/Linux/Mac
+###################################
 
 # Navigate to mobily-elastic-stack/labs/dataset/shakespeare
 
@@ -22,7 +24,9 @@ curl -k -u elastic:$ELASTIC_PASSWORD  -H "Content-Type: application/json" -XGET 
 }
 }' 
 
+###################################
 #Windows
+###################################
 
 # Navigate to mobily-elastic-stack/labs/dataset/shakespeare
 

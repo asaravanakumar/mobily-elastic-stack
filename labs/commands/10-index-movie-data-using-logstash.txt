@@ -1,0 +1,43 @@
+
+#Navigate to /mobiliy-elastic-stack/main/labs/dataset/movie-dataset
+
+#Configure logstash pipeline
+
+Create /logstash-x.x/config/movies-csv-read.conf
+
+input {
+		file {
+				path => "/<path>/movies.csv"
+				start_position => "beginning"
+				sincedb_path => "/dev/null"
+				codec => plain {
+					charset => "UTF-8"
+				}
+		}
+ }
+
+filter {
+	csv {
+		separator => ","
+		skip_header => "true"
+		columns => ["movieid", "title", "genres"]
+	}
+}
+
+output {
+  	elasticsearch {
+    		hosts => ["https://localhost:9200"]
+    		index => "movies-css"
+    		user => "elastic"
+    		password => "<generated-password>"
+    		ssl_certificate_verification => false
+  	}
+        stdout {
+                codec => rubydebug
+        }
+}
+
+
+#Run Logstash
+bin/logstash -f config/movies-csv-read.conf
+

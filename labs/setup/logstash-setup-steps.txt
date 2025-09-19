@@ -1,6 +1,5 @@
 #Ubuntu Setup
 
-
 sudo apt install openjdk-11-jre-headless [optional - logstash comes with bundled jdk]
 sudo apt-get update
 sudo apt-get install logstash
