@@ -270,10 +270,10 @@ curl -k -u elastic:%ELASTIC_PASSWORD% -H "Content-Type: application/json" -XPUT 
 curl -k -u elastic:%ELASTIC_PASSWORD% -XDELETE "https://localhost:9200/cdr?pretty"
 
 # Create the 'cdr' index using mapping and analzyer from a JSON file
-curl -k -u elastic:%ELASTIC_PASSWORD% -H "Content-Type: application/json" -XPUT 'https://127.0.0.1:9200/cdr' --data-binary @cdr-analyzer.json
+curl -k -u elastic:%ELASTIC_PASSWORD% -H "Content-Type: application/json" -XPUT "https://127.0.0.1:9200/cdr" --data-binary @cdr-analyzer.json
 
 # Bulk insert CDR documents from a JSON file
-curl -k -u elastic:%ELASTIC_PASSWORD% -H "Content-Type: application/json" -XPUT 'https://127.0.0.1:9200/cdr/_bulk' --data-binary @cdr-dataset-bulk.json
+curl -k -u elastic:%ELASTIC_PASSWORD% -H "Content-Type: application/json" -XPUT "https://127.0.0.1:9200/cdr/_bulk" --data-binary @cdr-dataset-bulk.json
 
 # Get the count of documents in the 'cdr' index (again)
 curl -k -u elastic:%ELASTIC_PASSWORD% -XGET "https://localhost:9200/cdr/_count?pretty"
