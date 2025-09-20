@@ -1,0 +1,59 @@
+
+Assignment #2: Ingest Apache Access Logs into Elasticsearch and Visualize in Kibana
+
+Objective:
+You will ingest Apache access logs into Elasticsearch and use Kibana to create insightful visualizations based on the ingested data.
+
+Context:
+Apache access logs contain valuable information about web traffic, user behavior, and system health. By parsing and indexing these logs into Elasticsearch, you can leverage Kibana to analyze trends, detect anomalies, and gain operational insights.
+
+Tasks:
+
+1. Ingest Apache Access Logs
+  - Use Logstash (or Filebeat) to parse and ingest Apache access logs into Elasticsearch.
+  - Ensure fields like @timestamp, request, response, geoip.location, and useragent are correctly extracted.
+  - Apply GeoIP enrichment to resolve client IPs to geographic locations.
+
+2. Create the Following Visualizations in Kibana:
+
+  a. Traffic Over Time
+    - Metric: Number of requests per minute/hour
+    - Visualization: Line Chart
+    - X-axis: @timestamp (date histogram)
+    - Y-axis: Count of documents (requests)
+    - Purpose: Track traffic trends, spikes, or potential downtime.
+
+  b. Top URLs Requested
+    - Metric: Most frequently accessed URLs
+    - Visualization: Table or Horizontal Bar Chart
+    - Terms Aggregation: Field: request
+    - Metric: Count
+    - Purpose: Identify the most popular or crawled pages.
+
+  c. HTTP Response Codes
+    - Metric: Distribution of status codes (200, 404, 500, etc.)
+    - Visualization: Pie Chart or Bar Chart
+    - Terms Aggregation: Field: response
+    - Metric: Count
+    - Purpose: Identify errors, redirects, or success rates.
+
+  d. Geo Distribution of Clients
+    - Metric: Client IPs grouped by country or city
+    - Visualization: Coordinate Map (or Region Map)
+    - Geo field: geoip.location
+    - Metric: Count
+    - Purpose: Understand geographic distribution of traffic.
+
+  e. Top User Agents / Browsers
+    - Metric: Most used user agents or browsers
+    - Visualization: Vertical Bar Chart or Table
+    - Terms Aggregation: Field: useragent.name (or raw useragent if not parsed)
+    - Metric: Count
+    - Purpose: Understand devices or browsers used by visitors.
+
+Deliverables:
+- Logstash/Filebeat configuration files.
+- Screenshots or exported objects of Kibana visualizations.
+- Brief summary of insights gained from the visualizations.
+
+This assignment will help you gain hands-on experience with the Elastic Stack for log analytics and visualization.
