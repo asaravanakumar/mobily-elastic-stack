@@ -54,3 +54,13 @@ sudo ./metricbeat -e
 sudo chown root metricbeat.yml
 sudo chown root /Users/saravana/Programs/metricbeat-9.1.0/modules.d/*.yml
 sudo ./metricbeat -e
+
+# Step to add dashboard templates to kibana
+
+docker run --net setup_default --rm docker.elastic.co/beats/metricbeat:9.1.0 setup \
+  -E output.elasticsearch.hosts=["https://es01:9200"] \
+  -E output.elasticsearch.username=elastic \
+  -E output.elasticsearch.password=Changeme \
+  -E output.elasticsearch.ssl.verification_mode=none \
+  -E setup.kibana.host=http://kibana:5601
+  
