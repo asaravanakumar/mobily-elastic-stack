@@ -1,5 +1,5 @@
 
-Assignment #2: Ingest Apache Access Logs into Elasticsearch and Visualize in Kibana
+Assignment #2: Ingest Apache Access Logs into Elasticsearch and Visualize in both Kibana and Grafana
 
 Objective:
 You will ingest Apache access logs into Elasticsearch and use Kibana to create insightful visualizations based on the ingested data.
@@ -55,5 +55,3 @@ Deliverables:
 - Logstash/Filebeat configuration files.
 - Screenshots or exported objects of Kibana visualizations.
 - Brief summary of insights gained from the visualizations.
-
-This assignment will help you gain hands-on experience with the Elastic Stack for log analytics and visualization.

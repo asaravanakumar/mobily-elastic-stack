@@ -1,0 +1,83 @@
+Assignment #3: System Metrics Ingestion & Visualization and Alerting
+
+Objective
+
+Collect system metrics from your server, ingest them into Elasticsearch, and visualize the data in real-time using both Kibana and Grafana dashboards.
+
+---
+
+1. Collecting System Metrics
+
+Use a metrics collection agent such as Metricbeat (Elastic Stack) or Telegraf (for Grafana/Prometheus) to gather the following system metrics:
+
+CPU Metrics
+- CPU Usage (%) – Total usage across all cores.
+- CPU Load Average (1m) – System load in the past minute.
+- CPU Usage per Core (%) – Detects imbalance across cores.
+
+Memory Metrics
+- Used Memory (%) – Percentage of RAM currently in use.
+- Free Memory – Available RAM.
+- Swap Usage (%) – Indicates memory pressure if swap is used.
+
+Disk Metrics
+- Disk Usage (%) per Mount Point – e.g., /, /var, /home.
+- Disk I/O (Read/Write MB/s) – Measures disk activity.
+- Free Disk Space (GB) – Space left before full.
+
+Network Metrics
+- Network Inbound Traffic (Bytes/s) – Real-time incoming data.
+- Network Outbound Traffic (Bytes/s) – Real-time outgoing data.
+- Dropped Packets – Indicates potential network issues.
+
+System / Process Metrics
+- System Uptime – How long the system has been running.
+- Running Processes Count – High number may indicate overload.
+- Top CPU-consuming Process – For troubleshooting spikes.
+
+---
+
+2. Ingesting Metrics Data
+
+- Configure your chosen agent (Metricbeat) to send metrics data to Elasticsearch.
+- Ensure data is indexed with appropriate time series fields (e.g., @timestamp).
+
+---
+
+3. Visualizing Metrics
+
+In Kibana
+- Create visualizations (e.g., line charts, gauges) for each metric.
+- Build a dashboard to display real-time trends and anomalies.
+
+In Grafana
+- Connect Grafana to your Elasticsearch data source.
+- Build similar panels for each metric, showing real-time time series data.
+
+---
+
+4. Alerting Rules
+
+Set up alerting rules in Kibana and/or Grafana for the following scenarios:
+- CPU Usage Alert: Trigger an alert if CPU usage exceeds 90% for more than 5 minutes.
+- Memory Usage Alert: Alert if used memory exceeds 85%.
+- Disk Space Alert: Notify if free disk space drops below 10 GB on any mount point.
+- Network Packet Loss Alert: Alert if dropped packets are detected in the last 10 minutes.
+- Process Count Alert: Trigger if the number of running processes exceeds a defined threshold (e.g., 300).
+
+---
+
+5. Deliverables
+
+- Screenshots or exported dashboards from both Kibana and Grafana showing the metrics.
+- Configuration files for Metricbeat/Logstash
+- Brief documentation on your setup process.
+
+---
+
+Notes
+
+- Focus on real-time data ingestion and visualization.
+- Ensure dashboards auto-refresh and display up-to-date metrics.
+
+---
