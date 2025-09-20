@@ -1,0 +1,22 @@
+server.name: kibana
+server.host: "0.0.0.0"
+elasticsearch.hosts: ["https://es01:9200"]
+monitoring.ui.container.elasticsearch.enabled: true
+xpack.encryptedSavedObjects.encryptionKey: "E5BV4TGNzJAh76eiSLoGZbo/XvqzZnxE1umaec56+P4="
+xpack.actions.enabled: true
+xpack.actions.allowedHosts: ["*", "smtp.example.com"]
+xpack.actions.preconfigured:
+  server-log:
+    name: "Server Log"
+    actionTypeId: ".server-log"
+  email_default:
+    name: "Default Email"
+    actionTypeId: ".email"
+    config:
+      service: gmail
+      host: smtp.example.com
+      port: 587
+      from: "alert@example.com"
+    secrets:
+      user: "your_email@example.com"
+      password: "your_email_password"
